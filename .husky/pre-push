@@ -1,0 +1,40 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run prettier:check ||
+(
+    echo '
+    ❌😰 Failed "prettier:check" code. ☠️❌
+    '
+    false;
+)
+
+npm run lint:check ||
+(
+    echo '
+    ❌😰 Failed "lint:check" code. ☠️❌
+    '
+    false;
+)
+
+npm run types:check ||
+(
+    echo '
+    ❌😰 Failed "types:check" code. ☠️❌
+    '
+    false;
+)
+
+echo '
+🤔 Code looks good... Trying to build now. 👷
+'
+
+npm run build ||
+(
+    echo '
+    ❌👷🔨❌ Your build failed ❌👷🔨❌
+            Next build failed: View the errors above to see why.
+    '
+    false;
+)
+
