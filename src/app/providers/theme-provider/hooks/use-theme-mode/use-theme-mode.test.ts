@@ -11,7 +11,7 @@ describe('useThemeMode', () => {
         vi.clearAllMocks();
     });
 
-    it('should initialize with light mode when localStorage is empty', () => {
+    it('✅ should initialize with light mode when localStorage is empty', () => {
         const { result } = renderHook(() => useThemeMode());
 
         expect(result.current.mode).toBe(Shared.Model.EThemeMode.LIGHT);
@@ -19,7 +19,7 @@ describe('useThemeMode', () => {
         expect(localStorage.getItem('theme-mode')).toBeNull();
     });
 
-    it('should initialize with saved mode from localStorage', () => {
+    it('✅ should initialize with saved mode from localStorage', () => {
         localStorage.setItem('theme-mode', Shared.Model.EThemeMode.DARK);
 
         const { result } = renderHook(() => useThemeMode());
@@ -28,7 +28,7 @@ describe('useThemeMode', () => {
         expect(result.current.currentTheme).toBeDefined();
     });
 
-    it('should toggle theme mode from light to dark', () => {
+    it('✅ should toggle theme mode from light to dark', () => {
         const { result } = renderHook(() => useThemeMode());
 
         expect(result.current.mode).toBe(Shared.Model.EThemeMode.LIGHT);
@@ -43,7 +43,7 @@ describe('useThemeMode', () => {
         );
     });
 
-    it('should toggle theme mode from dark to light', () => {
+    it('✅ should toggle theme mode from dark to light', () => {
         localStorage.setItem('theme-mode', Shared.Model.EThemeMode.DARK);
 
         const { result } = renderHook(() => useThemeMode());
@@ -60,7 +60,7 @@ describe('useThemeMode', () => {
         );
     });
 
-    it('should preserve theme mode through multiple toggles', () => {
+    it('✅ should preserve theme mode through multiple toggles', () => {
         const { result } = renderHook(() => useThemeMode());
 
         expect(result.current.mode).toBe(Shared.Model.EThemeMode.LIGHT);
@@ -84,7 +84,7 @@ describe('useThemeMode', () => {
         );
     });
 
-    it('should return stable references for functions and themes', () => {
+    it('✅ should return stable references for functions and themes', () => {
         const { result, rerender } = renderHook(() => useThemeMode());
 
         const firstToggle = result.current.toggleThemeMode;
@@ -98,7 +98,7 @@ describe('useThemeMode', () => {
         expect(result.current.mode).toBe(firstMode);
     });
 
-    it('should handle invalid localStorage values', () => {
+    it('✅ should handle invalid localStorage values', () => {
         localStorage.setItem('theme-mode', 'invalid-mode');
 
         const { result } = renderHook(() => useThemeMode());

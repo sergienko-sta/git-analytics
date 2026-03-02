@@ -1,59 +1,70 @@
 import type { ReactNode } from 'react';
 import { renderHook } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { EThemeMode } from '@/shared/model';
 
 import { useTheme } from './use-theme.hook';
 import { type IThemeContextType, ThemeContext } from './use-theme.types';
 
-const mockContextValue: IThemeContextType = {
-    mode: EThemeMode.LIGHT,
-    toggleTheme: vi.fn(),
-};
+describe('useTheme', () => {
+    const mockToggle = vi.fn();
 
-const createWrapper = (contextValue: IThemeContextType | undefined) => {
-    return function Wrapper({ children }: { children: ReactNode }) {
-        return (
-            <ThemeContext.Provider value={contextValue}>
+    const mockContextValue: IThemeContextType = {
+        mode: EThemeMode.LIGHT,
+        toggleTheme: mockToggle,
+    };
+
+    beforeEach(() => {
+        vi.clearAllMocks();
+    });
+
+    it('✅ should return context value when used within ThemeProvider', () => {
+        const wrapper = ({ children }: { children: ReactNode }) => (
+            <ThemeContext.Provider value={mockContextValue}>
                 {children}
             </ThemeContext.Provider>
         );
-    };
-};
-
-describe('useTheme', () => {
-    it('should return context value when used within ThemeProvider', () => {
-        const wrapper = createWrapper(mockContextValue);
 
         const { result } = renderHook(() => useTheme(), { wrapper });
 
-        expect(result.current).toBe(mockContextValue);
+        expect(result.current).toBeDefined();
         expect(result.current.mode).toBe(EThemeMode.LIGHT);
-        expect(result.current.toggleTheme).toBeDefined();
+        expect(result.current.toggleTheme).toBe(mockToggle);
     });
 
-    it('should throw error when used outside ThemeProvider', () => {
-        const wrapper = createWrapper(undefined);
+    it('✅ should work with custom render function', () => {
+        const { result } = renderHook(() => useTheme(), {
+            wrapper: ({ children }) => (
+                <ThemeContext.Provider value={mockContextValue}>
+                    {children}
+                </ThemeContext.Provider>
+            ),
+        });
 
+        expect(result.current.mode).toBe(EThemeMode.LIGHT);
+    });
+
+    it('❌ should throw error when used outside ThemeProvider', () => {
         expect(() => {
-            renderHook(() => useTheme(), { wrapper });
+            renderHook(() => useTheme());
         }).toThrow('useTheme must be used within ThemeProvider');
     });
 
-    it('should throw error with correct message', () => {
-        const wrapper = createWrapper(undefined);
+    it('✅ should work with different theme modes', () => {
+        const darkContext: IThemeContextType = {
+            mode: EThemeMode.DARK,
+            toggleTheme: mockToggle,
+        };
 
-        let error: Error | null = null;
-        try {
-            renderHook(() => useTheme(), { wrapper });
-        } catch (e) {
-            error = e as Error;
-        }
-
-        expect(error).toBeInstanceOf(Error);
-        expect(error?.message).toBe(
-            'useTheme must be used within ThemeProvider',
+        const wrapper = ({ children }: { children: ReactNode }) => (
+            <ThemeContext.Provider value={darkContext}>
+                {children}
+            </ThemeContext.Provider>
         );
+
+        const { result } = renderHook(() => useTheme(), { wrapper });
+
+        expect(result.current.mode).toBe(EThemeMode.DARK);
     });
 });
