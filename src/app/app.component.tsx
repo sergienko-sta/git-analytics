@@ -1,24 +1,43 @@
-import { useState } from 'react';
+import { BulbFilled, BulbOutlined } from '@ant-design/icons';
+import { Button, Flex, Layout, Typography } from 'antd';
 
-// import './styles/App.css';
+import * as Shared from '@shared';
 
-export const App = () => {
-    const [count, setCount] = useState(0);
+import { ThemeProvider } from './providers';
+
+const StubContent = () => {
+    const { mode, toggleTheme } = Shared.useTheme();
 
     return (
-        <>
-            <div>
+        <Layout>
+            <Flex vertical align='center' justify='center'>
                 <a href='https://vite.dev' target='_blank' rel='noreferrer'></a>
                 <a href='https://react.dev' target='_blank' rel='noreferrer'></a>
-            </div>
-            <h1>A + Vite + React</h1>
-            <div className='card'>
-                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
-        </>
+
+                <Typography.Title level={1}>A + Vite + React</Typography.Title>
+                <Typography.Text type='warning'>
+                    Текущая тема: {mode === 'light' ? 'светлая' : 'темная'}
+                </Typography.Text>
+                <Button
+                    type='text'
+                    icon={mode === 'light' ? <BulbOutlined /> : <BulbFilled />}
+                    onClick={toggleTheme}
+                    title={`Switch to ${mode === 'light' ? 'dark' : 'light'} mode`}
+                >
+                    {mode === 'light' ? 'Тёмная тема' : 'Светлая тема'}
+                </Button>
+                <Typography.Text type='success'>
+                    Click on the Vite and React logos to learn more
+                </Typography.Text>
+            </Flex>
+        </Layout>
+    );
+};
+
+export const App = () => {
+    return (
+        <ThemeProvider>
+            <StubContent />
+        </ThemeProvider>
     );
 };
