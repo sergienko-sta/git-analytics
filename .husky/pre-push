@@ -1,6 +1,14 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+npm run branch:protection ||
+(
+    echo '
+    ❌😰 Failed "branch:protection" code. ☠️❌
+    '
+    false;
+)
+
 npm run prettier:check ||
 (
     echo '
