@@ -230,6 +230,7 @@ export default [
 
                         // Разрешенные внешние модули
                         'react-dom/client',
+                        '@testing-library/jest-dom/vitest',
                     ],
                 },
             ],
