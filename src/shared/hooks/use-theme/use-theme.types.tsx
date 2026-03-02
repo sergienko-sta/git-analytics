@@ -2,7 +2,7 @@ import { createContext } from 'react';
 
 import type { TThemeMode } from '@/shared/model';
 
-interface IThemeContextType {
+export interface IThemeContextType {
     mode: TThemeMode;
     toggleTheme: () => void;
 }
