@@ -1,4 +1,4 @@
-import type { TThemeConfig } from '../types';
+import type { TThemeConfig } from '../theme.types';
 
 import { light } from './light';
 

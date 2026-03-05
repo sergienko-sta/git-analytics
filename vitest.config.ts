@@ -13,6 +13,7 @@ export default defineConfig({
             provider: 'v8', // или 'istanbul', но v8 быстрее
             reporter: ['text', 'json', 'html', 'text-summary'],
             reportsDirectory: './coverage',
+            include: ['src/**/*.ts', 'src/**/*.tsx'],
             exclude: [
                 '**/node_modules/**',
                 '**/dist/**',

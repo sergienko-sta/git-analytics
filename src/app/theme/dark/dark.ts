@@ -1,7 +1,7 @@
 import { theme } from 'antd';
 
 import { lightTheme } from '../light';
-import type { TThemeConfig } from '../types';
+import type { TThemeConfig } from '../theme.types';
 
 export const dark: TThemeConfig = {
     algorithm: theme.darkAlgorithm,

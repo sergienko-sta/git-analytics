@@ -1,6 +1,6 @@
 import { theme } from 'antd';
 
-import type { TThemeConfig } from '../types';
+import type { TThemeConfig } from '../theme.types';
 
 export const light: TThemeConfig = {
     algorithm: theme.defaultAlgorithm,
