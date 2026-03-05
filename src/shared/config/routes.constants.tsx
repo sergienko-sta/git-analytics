@@ -1,9 +1,16 @@
-export enum AppRoutes {
-    HOME = 'home',
-    NOT_FOUND = 'not_found',
-}
+import { type RouteObject } from 'react-router-dom';
 
-export const routePaths = {
-    [AppRoutes.HOME]: '/',
-    [AppRoutes.NOT_FOUND]: '*',
-} as const;
+import { AppRoutes, routePaths } from '../constants';
+import { StubContent } from '../ui';
+
+export const routes: RouteObject[] = [
+    {
+        path: routePaths[AppRoutes.HOME],
+        element: <StubContent />,
+    },
+    {
+        path: routePaths[AppRoutes.NOT_FOUND],
+        // TODO: add NotFound component
+        element: <div>NOT FOUND</div>,
+    },
+];

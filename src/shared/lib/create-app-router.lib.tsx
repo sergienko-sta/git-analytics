@@ -1,14 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import * as Shared from '@shared';
+import { RootLayout } from '@widgets';
 
 import { routes } from '../config';
-import { RootLayout } from '../ui';
+import { AppRoutes, routePaths } from '../constants';
 
 export const createAppRouter = () => {
     return createBrowserRouter([
         {
-            path: Shared.routePaths[Shared.AppRoutes.HOME],
+            path: routePaths[AppRoutes.HOME],
             element: <RootLayout />,
             // TODO: add ErrorElement component
             errorElement: <div>Произошла ошибка</div>,
