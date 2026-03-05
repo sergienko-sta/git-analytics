@@ -1,10 +1,10 @@
 import { BulbFilled, BulbOutlined } from '@ant-design/icons';
 import { Button, Flex, Layout, Typography } from 'antd';
 
-import * as Shared from '@shared';
+import { useTheme } from '../../hooks';
 
 export const StubContent = () => {
-    const { mode, toggleTheme } = Shared.useTheme();
+    const { mode, toggleTheme } = useTheme();
 
     return (
         <Layout>

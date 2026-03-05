@@ -2,10 +2,10 @@ import { Suspense, useMemo } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { Spin } from 'antd';
 
-import * as Lib from '../lib';
+import * as Shared from '@shared';
 
 export const AppRouter = () => {
-    const router = useMemo(() => Lib.createAppRouter(), []);
+    const router = useMemo(() => Shared.createAppRouter(), []);
 
     return (
         <Suspense fallback={<Spin fullscreen size='large' />}>
