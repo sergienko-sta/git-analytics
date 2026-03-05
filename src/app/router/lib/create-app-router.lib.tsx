@@ -1,9 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import { RootLayout } from '@widgets';
+
 import * as Shared from '@shared';
 
 import { routes } from '../config';
-import { RootLayout } from '../ui';
 
 export const createAppRouter = () => {
     return createBrowserRouter([
