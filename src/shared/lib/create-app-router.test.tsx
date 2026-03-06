@@ -18,7 +18,7 @@ vi.mock('../config', () => ({
 }));
 
 vi.mock('../constants', () => ({
-    AppRoutes: {
+    EAppRoutes: {
         HOME: 'home',
     },
     routePaths: {

@@ -3,12 +3,12 @@ import { createBrowserRouter } from 'react-router-dom';
 import { RootLayout } from '@widgets';
 
 import { routes } from '../config';
-import { AppRoutes, routePaths } from '../constants';
+import { EAppRoutes, routePaths } from '../constants';
 
 export const createAppRouter = () => {
     return createBrowserRouter([
         {
-            path: routePaths[AppRoutes.HOME],
+            path: routePaths[EAppRoutes.HOME],
             element: <RootLayout />,
             // TODO: add ErrorElement component
             errorElement: <div>Произошла ошибка</div>,
