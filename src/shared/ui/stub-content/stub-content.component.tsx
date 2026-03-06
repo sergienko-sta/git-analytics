@@ -1,10 +1,9 @@
-import { BulbFilled, BulbOutlined } from '@ant-design/icons';
-import { Button, Flex, Layout, Typography } from 'antd';
+import { Flex, Layout, Typography } from 'antd';
 
 import { useTheme } from '../../hooks';
 
 export const StubContent = () => {
-    const { mode, toggleTheme } = useTheme();
+    const { mode } = useTheme();
 
     return (
         <Layout>
@@ -16,14 +15,6 @@ export const StubContent = () => {
                 <Typography.Text type='warning'>
                     Текущая тема: {mode === 'light' ? 'светлая' : 'темная'}
                 </Typography.Text>
-                <Button
-                    type='text'
-                    icon={mode === 'light' ? <BulbOutlined /> : <BulbFilled />}
-                    onClick={toggleTheme}
-                    title={`Switch to ${mode === 'light' ? 'dark' : 'light'} mode`}
-                >
-                    {mode === 'light' ? 'Тёмная тема' : 'Светлая тема'}
-                </Button>
                 <Typography.Text type='success'>
                     Click on the Vite and React logos to learn more
                 </Typography.Text>
