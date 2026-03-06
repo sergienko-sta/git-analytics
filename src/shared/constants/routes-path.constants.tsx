@@ -1,9 +1,13 @@
-export enum AppRoutes {
+export enum EAppRoutes {
     HOME = 'home',
+    PROFILE = 'profile',
+    REPOSITORY = 'repository',
     NOT_FOUND = 'not_found',
 }
 
 export const routePaths = {
-    [AppRoutes.HOME]: '/',
-    [AppRoutes.NOT_FOUND]: '*',
+    [EAppRoutes.HOME]: '/',
+    [EAppRoutes.PROFILE]: '/profile/:login',
+    [EAppRoutes.REPOSITORY]: '/repository',
+    [EAppRoutes.NOT_FOUND]: '*',
 } as const;
