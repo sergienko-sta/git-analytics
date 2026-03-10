@@ -2,20 +2,21 @@ import { Outlet, RouterProvider } from 'react-router-dom';
 import { act, render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { createAppRouter } from './create-app-router.lib';
+import {
+    createAppRouter,
+    type ICreateRouterOptions,
+} from './create-app-router.lib';
 
-vi.mock('../config', () => ({
-    routes: [
-        {
-            path: '/test',
-            element: <div data-testid='test-page'>Test Page</div>,
-        },
-        {
-            path: '/about',
-            element: <div data-testid='about-page'>About Page</div>,
-        },
-    ],
-}));
+const mockRoutes = [
+    {
+        path: 'test',
+        element: <div data-testid='test-page'>Test Page</div>,
+    },
+    {
+        path: 'about',
+        element: <div data-testid='about-page'>About Page</div>,
+    },
+];
 
 vi.mock('../constants', () => ({
     EAppRoutes: {
@@ -41,9 +42,22 @@ vi.mock('@widgets', () => ({
     },
 }));
 
+const MockRootLayout = () => (
+    <div data-testid='root-layout'>
+        Root Layout
+        <div data-testid='outlet-container'>
+            <Outlet />
+        </div>
+    </div>
+);
 describe('createAppRouter', () => {
+    const defaultOptions: ICreateRouterOptions = {
+        rootElement: <MockRootLayout />,
+        errorElement: <div data-testid='error-element'>Error</div>,
+        children: mockRoutes,
+    };
     it('should render outlet content when navigating', async () => {
-        const router = createAppRouter();
+        const router = createAppRouter(defaultOptions);
 
         render(<RouterProvider router={router} />);
 
