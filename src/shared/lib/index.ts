@@ -1,2 +1,2 @@
-export * from './create-app-router.lib';
+export * from './create-app-router';
 export * from './navigation-service';

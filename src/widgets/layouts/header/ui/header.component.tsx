@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { BulbFilled, BulbOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 
@@ -9,7 +10,11 @@ import * as Hooks from '../hooks';
 
 import * as Styles from './header.styles';
 
-export const Header = () => {
+interface IHeaderProps {
+    rightContent?: ReactNode;
+}
+
+export const Header = ({ rightContent }: IHeaderProps) => {
     const { toggleTheme, mode } = Shared.useTheme();
     const { activeTab, handleLogoClick, handleTabChange } = Hooks.useNavigation();
 
@@ -28,6 +33,7 @@ export const Header = () => {
                     onClick={toggleTheme}
                     title={`Switch to ${mode === 'light' ? 'dark' : 'light'} mode`}
                 />
+                {rightContent}
             </Styles.RightSection>
         </Styles.StyledHeader>
     );
