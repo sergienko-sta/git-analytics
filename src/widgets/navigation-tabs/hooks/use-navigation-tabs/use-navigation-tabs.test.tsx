@@ -11,12 +11,12 @@ vi.mock('@shared', () => ({
         {
             key: 'home',
             icon: <div data-testid='home-icon'>🏠</div>,
-            label: 'Home',
+            label: 'tab.home',
         },
         {
             key: 'profile',
             icon: <div data-testid='profile-icon'>👤</div>,
-            label: 'Profile',
+            label: 'tab.repositories',
         },
     ] as Shared.Model.INavigationTabItem[],
     EAppRoutes: {

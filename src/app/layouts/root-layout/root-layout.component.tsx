@@ -3,13 +3,15 @@ import { Layout } from 'antd';
 
 import * as Widgets from '@widgets';
 
+import * as Features from '@features';
+
 import * as Styles from './root-layout.styles';
 
 export const RootLayout = () => {
     return (
         <Styles.Layout>
             <Layout>
-                <Widgets.Header />
+                <Widgets.Header rightContent={<Features.LanguageSwitcher />}></Widgets.Header>
                 <Styles.Content>
                     <Styles.ContentWrapper>
                         <Outlet />
