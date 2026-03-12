@@ -6,19 +6,21 @@ import { RootLayout } from '@app';
 
 import * as Shared from '@shared';
 
+import { routes } from '../config';
+
 export const AppRouter = () => {
     const router = useMemo(
         () =>
             Shared.createAppRouter({
                 rootElement: <RootLayout />,
-                children: Shared.routes,
+                children: routes,
             }),
         [],
     );
 
     return (
         <Suspense fallback={<Spin fullscreen size='large' />}>
-            <RouterProvider router={router} />
+            <RouterProvider router={router} future={{ v7_startTransition: true }} />
         </Suspense>
     );
 };
