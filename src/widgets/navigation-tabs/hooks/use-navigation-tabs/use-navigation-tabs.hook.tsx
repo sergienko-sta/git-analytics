@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import * as Shared from '@shared';
 
@@ -7,6 +8,7 @@ import type * as Types from './use-navigation-tabs.types';
 
 export const useNavigationTabs: Types.TUseNavigationTabs = (args) => {
     const { onTabChange } = args;
+    const { t } = useTranslation('navigation');
     const handleTabChange = useCallback(
         (key: string) => {
             onTabChange(key as Shared.EAppRoutes);
@@ -18,10 +20,10 @@ export const useNavigationTabs: Types.TUseNavigationTabs = (args) => {
         (tab: Shared.Model.INavigationTabItem) => (
             <Styles.TabContainer>
                 {tab.icon}
-                {tab.label}
+                {t(tab.label)}
             </Styles.TabContainer>
         ),
-        [],
+        [t],
     );
 
     const tabItems = useMemo(

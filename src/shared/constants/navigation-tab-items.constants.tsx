@@ -8,14 +8,14 @@ export const NAVIGATION_TAB_ITEMS: Model.INavigationTabItem[] = [
     {
         key: EAppRoutes.HOME,
         icon: <HomeOutlined />,
-        label: 'Главная',
+        label: 'tab.home',
         path: routePaths[EAppRoutes.HOME],
         requiresAuth: false,
     },
     {
         key: EAppRoutes.REPOSITORY,
         icon: <CodeOutlined />,
-        label: 'Репозитории',
+        label: 'tab.repositories',
         path: routePaths[EAppRoutes.REPOSITORY],
         requiresAuth: false,
     },
