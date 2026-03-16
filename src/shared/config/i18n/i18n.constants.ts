@@ -27,7 +27,7 @@ i18n.use(Backend)
             caches: ['localStorage', 'cookie'],
         },
 
-        ns: ['common', 'navigation'],
+        ns: ['common', 'navigation', 'features'],
         defaultNS: 'common',
     })
     .then(() => {
