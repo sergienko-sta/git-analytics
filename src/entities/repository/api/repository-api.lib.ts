@@ -21,8 +21,8 @@ class RepositoryApi {
 
         const { data } = await githubClient.search.repos({
             q: searchQuery,
-            sort: sort || 'stars',
-            order: order || 'desc',
+            sort: sort || Shared.GITHUB_SORT.STARS,
+            order: order || Shared.GITHUB_ORDER.DESC,
             per_page: perPage,
             page,
         });
