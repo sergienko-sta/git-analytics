@@ -1,0 +1,7 @@
+{
+  "repository": {
+    "title": "Search GitHub repositories",
+    "total-repos": "Repositories found:",
+    "search-error": "Search error"
+  }
+}

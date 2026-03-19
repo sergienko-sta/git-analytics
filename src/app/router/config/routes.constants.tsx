@@ -18,7 +18,7 @@ export const routes: RouteObject[] = [
     },
     {
         path: Shared.routePaths[Shared.EAppRoutes.REPOSITORY],
-        element: <RepositoryPage title='Custom Title' />,
+        element: <RepositoryPage />,
     },
     {
         path: Shared.routePaths[Shared.EAppRoutes.NOT_FOUND],
