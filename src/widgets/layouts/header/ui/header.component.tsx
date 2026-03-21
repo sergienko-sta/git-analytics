@@ -21,7 +21,7 @@ export const Header = ({ rightContent }: IHeaderProps) => {
     return (
         <Styles.StyledHeader>
             <Styles.LeftSection>
-                <Styles.Logo onClick={handleLogoClick}>GitAnalytics</Styles.Logo>
+                <Styles.Logo onClick={handleLogoClick}>{Shared.APP_LOGO_NAME}</Styles.Logo>
             </Styles.LeftSection>
 
             <Widgets.NavigationTabs activeTab={activeTab} onTabChange={handleTabChange} />
