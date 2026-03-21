@@ -270,6 +270,7 @@ export default [
             '**/*.config.*',
             '**/.history/**',
             '**/public/**',
+            '**/scripts/**',
             '**/vite-env.d.ts',
         ],
     },

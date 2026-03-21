@@ -20,7 +20,8 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest --watch",
-    "branch:protection": "sh ./bin/branch-protection.sh"
+    "branch:protection": "sh ./bin/branch-protection.sh",
+    "generate:widget": "node ./scripts/generate-widget.js"
   },
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
