@@ -5,6 +5,8 @@ import * as Widgets from '@widgets';
 
 import * as Features from '@features';
 
+import * as Shared from '@shared';
+
 import * as Styles from './root-layout.styles';
 
 export const RootLayout = () => {
@@ -17,7 +19,9 @@ export const RootLayout = () => {
                         <Outlet />
                     </Styles.ContentWrapper>
                 </Styles.Content>
-                <Styles.Footer>GitAnalytics ©{new Date().getFullYear()}</Styles.Footer>
+                <Styles.Footer>
+                    {Shared.APP_LOGO_NAME} ©{new Date().getFullYear()}
+                </Styles.Footer>
             </Layout>
         </Styles.Layout>
     );

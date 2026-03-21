@@ -1,3 +1,4 @@
+export * from './app-default.constants';
 export * from './debounce-delay.constants';
 export * from './default-page.constants';
 export * from './github.constants';
