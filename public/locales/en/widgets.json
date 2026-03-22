@@ -6,5 +6,33 @@
     "title": "- Pet Project",
     "description": "Explore GitHub analytics. Search repositories, follow trends, and dive into code.",
     "search-now-btn": "Search now"
+  },
+  "feature-points": {
+    "section": {
+      "title": "What can you do with {{appName}}?",
+      "description": "Tools for deep GitHub analytics"
+    },
+    "features": [
+      {
+        "id": 1,
+        "title": "Powerful Search",
+        "description": "Search repositories by language, stars, forks and other parameters"
+      },
+      {
+        "id": 2,
+        "title": "GitHub API Integration",
+        "description": "Full access to GitHub data in real-time"
+      },
+      {
+        "id": 3,
+        "title": "Trending Projects",
+        "description": "Stay updated with the most popular and fastest-growing repositories"
+      },
+      {
+        "id": 4,
+        "title": "Activity Analytics",
+        "description": "Track commits, pull requests and developer activity"
+      }
+    ]
   }
 }
