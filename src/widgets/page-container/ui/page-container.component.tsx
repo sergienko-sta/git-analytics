@@ -7,6 +7,10 @@ import * as Styles from './page-container.styles';
 const { Title } = Typography;
 
 export const PageContainer = ({ title, children }: Model.IPageContainerProps) => {
+    if (!title) {
+        return <Styles.Container>{children}</Styles.Container>;
+    }
+
     return (
         <Styles.Container>
             <Styles.Header>
