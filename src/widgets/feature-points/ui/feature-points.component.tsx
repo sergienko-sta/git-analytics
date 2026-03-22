@@ -1,4 +1,3 @@
-import { memo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row, Typography } from 'antd';
 
