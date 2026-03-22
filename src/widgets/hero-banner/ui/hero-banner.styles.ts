@@ -10,4 +10,5 @@ export const BannerContainer = styled.div`
 
 export const description: CSSProperties = {
     marginBottom: 24,
+    whiteSpace: 'pre-line',
 };
