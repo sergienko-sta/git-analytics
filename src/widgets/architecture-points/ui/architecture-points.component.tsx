@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row, Space, Tag, Typography } from 'antd';
 
@@ -8,7 +7,7 @@ import * as Styles from './architecture-points.styles';
 
 const { Title, Paragraph } = Typography;
 
-export const ArchitecturePoints = memo(() => {
+export const ArchitecturePoints = () => {
     const { t } = useTranslation('widgets');
     const architecturePoints = Hooks.UseArchitecturePoints();
 
@@ -41,4 +40,4 @@ export const ArchitecturePoints = memo(() => {
             </Row>
         </Styles.Container>
     );
-});
+};
