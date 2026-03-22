@@ -16,7 +16,7 @@ export const ArchitecturePoints = () => {
             <Styles.SectionTitle>
                 <Title level={2}>{t('architecture-points.section.title')}</Title>
                 <Paragraph type='secondary'>
-                    {t('architecture-points.section.description')}
+                    <Title level={4}>{t('architecture-points.section.description')}</Title>
                 </Paragraph>
             </Styles.SectionTitle>
 
