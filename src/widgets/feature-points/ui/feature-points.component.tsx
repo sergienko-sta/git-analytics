@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row, Typography } from 'antd';
 
@@ -10,7 +9,7 @@ import * as Styles from './feature-points.styles';
 
 const { Title, Paragraph } = Typography;
 
-export const FeaturePoints = memo(() => {
+export const FeaturePoints = () => {
     const { t } = useTranslation('widgets');
     const features = Hooks.UseFeaturePoints();
     const appName = Shared.APP_LOGO_NAME;
@@ -46,4 +45,4 @@ export const FeaturePoints = memo(() => {
             </Row>
         </Styles.Container>
     );
-});
+};
