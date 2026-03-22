@@ -34,5 +34,53 @@
         "description": "Track commits, pull requests and developer activity"
       }
     ]
+  },
+  "architecture-points": {
+    "section": {
+      "title": "Application Architecture",
+      "description": "Production-ready code with scalability"
+    },
+    "architecture": {
+      "react": {
+        "title": "React 18+",
+        "description": "Modern React with hooks, Suspense, Concurrent features and performance optimizations",
+        "highlights": ["Hooks API", "Concurrent mode", "Suspense", "useMemo/useCallback"]
+      },
+      "typescript": {
+        "title": "TypeScript v5",
+        "description": "Strict typing with full code coverage, advanced types, utility types and type guards",
+        "highlights": ["Strict typing", "Generic types", "Utility types", "Type safety"]
+      },
+      "router": {
+        "title": "React Router DOM v6",
+        "description": "Declarative routing with protected routes, lazy loading and nested routes",
+        "highlights": ["Protected routes", "Lazy loading", "Nested routes", "Data loading"]
+      },
+      "fsd": {
+        "title": "FSD (Feature-Sliced Design)",
+        "description": "Scalable architecture with clear layer separation: app, pages, widgets, features, entities, shared",
+        "highlights": ["Layer isolation", "Clear boundaries", "Easy scaling"]
+      },
+      "api-client": {
+        "title": "Type-safe API Client",
+        "description": "Full GitHub API typing via @octokit/types, type guards, utility types",
+        "highlights": ["TypeScript first", "Type inference", "Error handling"]
+      },
+      "performance": {
+        "title": "Performance Optimization",
+        "description": "Virtualization, lazy loading, memoization, infinite scroll",
+        "highlights": ["React.memo", "useCallback/useMemo", "TanStack Query caching"]
+      },
+      "design-system": {
+        "title": "Design System",
+        "description": "Custom Ant Design v6 theme, dynamic theme switching, CSS-in-JS",
+        "highlights": ["Dynamic tokens", "Styled-components", "Responsive design"]
+      },
+      "i18n": {
+        "title": "Internationalization",
+        "description": "Full multilingual support via i18next",
+        "highlights": ["i18next", "Multi-language interface"]
+      }
+    }
   }
 }
