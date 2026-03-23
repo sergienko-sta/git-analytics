@@ -28,7 +28,7 @@
     "@octokit/openapi-types": "^27.0.0",
     "@octokit/rest": "^22.0.1",
     "@octokit/types": "^16.0.0",
-    "@tanstack/react-query": "^5.90.21",
+    "@tanstack/react-query": "^5.95.0",
     "@tanstack/react-query-devtools": "^5.91.3",
     "antd": "^6.3.1",
     "i18next": "^25.8.14",
