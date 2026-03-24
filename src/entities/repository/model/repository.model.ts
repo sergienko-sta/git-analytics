@@ -18,3 +18,8 @@ export interface IRepositoryCardProps {
 export interface IRepositoryStatisticProps {
     repository: TSearchReposData;
 }
+
+export type TSearchReposInfiniteResponse = Pick<TSearchReposResponse, 'items'> & {
+    totalCount: number;
+    nextPage: number | undefined;
+};
