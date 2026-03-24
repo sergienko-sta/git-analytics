@@ -7,9 +7,9 @@ import * as Features from '@features';
 
 import * as Hooks from '../hooks';
 
-import * as Styles from './repository-page.styles';
+import * as Styles from './repository-pagination-page.styles';
 
-export const RepositoryPage = () => {
+export const RepositoryPaginationPage = () => {
     const { t } = useTranslation('pages');
     const { query, currentPage, perPage, data, isLoading, error, handleSearch, handlePageChange } =
         Hooks.useRepositorySearch();

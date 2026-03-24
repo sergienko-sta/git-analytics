@@ -1,2 +1,3 @@
 export * from './home';
-export * from './repository';
+export * from './repository-page';
+export * from './repository-pagination-page';
