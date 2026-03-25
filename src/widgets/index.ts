@@ -5,4 +5,5 @@ export * from './hero-banner';
 export * from './layouts';
 export * from './navigation-tabs';
 export * from './page-container';
+export * from './repository-layout';
 export * from './repository-pagination';

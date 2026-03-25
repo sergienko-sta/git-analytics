@@ -82,5 +82,12 @@
         "highlights": ["i18next", "Multi-language interface"]
       }
     }
+  },
+  "repository-layout": {
+    "tabs": {
+      "compare": "📊 Compare Approaches",
+      "pagination": "📄 Pagination",
+      "infinite": "♾️ Infinite Scroll"
+    }
   }
 }

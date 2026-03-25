@@ -1,5 +1,7 @@
 import { type RouteObject } from 'react-router-dom';
 
+import * as Widgets from '@widgets';
+
 import * as Shared from '@shared';
 
 const HomePage = Shared.lazyLoad(() => import('@pages/home'), {
@@ -25,11 +27,21 @@ export const routes: RouteObject[] = [
     },
     {
         path: Shared.routePaths[Shared.EAppRoutes.REPOSITORY],
-        element: <RepositoryPage />,
-    },
-    {
-        path: Shared.routePaths[Shared.EAppRoutes.REPOSITORY_PAGINATION],
-        element: <RepositoryPaginationPage />,
+        element: <Widgets.RepositoryLayout />,
+        children: [
+            {
+                index: true,
+                element: <RepositoryPage />,
+            },
+            {
+                path: 'pagination',
+                element: <RepositoryPaginationPage />,
+            },
+            {
+                path: 'infinite',
+                element: <div>STUB</div>,
+            },
+        ],
     },
     {
         path: Shared.routePaths[Shared.EAppRoutes.NOT_FOUND],
