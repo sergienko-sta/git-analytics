@@ -1,4 +1,62 @@
 {
+  "repository-page": {
+    "title": "Data Loading Approaches Comparison",
+    "description": "Technical analysis of two repository list loading implementations: \nclassic pagination vs infinite scroll with virtualization",
+
+    "recommendations": {
+      "title": "Approach Selection Recommendations"
+    },
+
+    "pagination": {
+      "title": "📄 Pagination is suitable for:",
+      "action": "Go to pagination",
+      "try": "Try pagination",
+      "features": [
+        "SEO-critical pages (each page has its own URL)",
+        "Reports and print versions",
+        "When exact page number is important",
+        "Quick navigation to any page",
+        "Server-side rendering (SSR)"
+      ]
+    },
+
+    "infiniteScroll": {
+      "title": "♾️ Infinite scroll is suitable for:",
+      "action": "Go to infinite scroll",
+      "try": "Try infinite scroll",
+      "features": [
+        "News feeds and social networks",
+        "Mobile applications",
+        "When page navigation is not needed",
+        "Smooth user experience",
+        "Large datasets with virtualization"
+      ]
+    },
+
+    "technicalDetails": {
+      "title": "Technical Implementation Details",
+      "pagination": {
+        "title": "Pagination",
+        "items": [
+          "Hook: <code>useQuery</code> from @tanstack/react-query",
+          "URL parameters: <code>?q=+language:typescript</code>",
+          "Caching: per page",
+          "Prefetching: on button hover",
+          "Sync: URL ↔ state"
+        ]
+      },
+      "infiniteScroll": {
+        "title": "Infinite Scroll",
+        "items": [
+          "Hook: <code>useInfiniteQuery</code> from @tanstack/react-query",
+          "Trigger: Intersection Observer",
+          "Virtualization: <code>@tanstack/react-virtual</code>",
+          "Smoothness: <code>rootMargin: '200px'</code> for prefetch",
+          "Optimization: only visible elements in DOM"
+        ]
+      }
+    }
+  },
   "repository": {
     "title": "Search GitHub repositories",
     "total-repos": "Repositories found:",
