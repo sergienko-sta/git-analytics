@@ -1,7 +1,11 @@
 import * as Constants from '../../constants';
 
 /* v8 ignore start */
-export const createRepositoryPath = (basePath: string, params?: { query?: string }): string => {
+export const createRepositoryPath = (
+    route: Constants.EAppRoutes,
+    params?: { query?: string },
+): string => {
+    const basePath = Constants.routePaths[route];
     if (!params?.query) return basePath;
 
     const searchParams = new URLSearchParams();
