@@ -23,8 +23,8 @@ export const routePathFunctions: {
         `/${EAppRoutes.PROFILE}/${login}`,
     [EAppRoutes.REPOSITORY]: () => routePaths[EAppRoutes.REPOSITORY],
     [EAppRoutes.REPOSITORY_PAGINATION]: (params?: RouteParams[EAppRoutes.REPOSITORY_PAGINATION]) =>
-        Lib.createRepositoryPath(`/${EAppRoutes.REPOSITORY_PAGINATION}`, params),
+        Lib.createRepositoryPath(EAppRoutes.REPOSITORY_PAGINATION, params),
     [EAppRoutes.REPOSITORY_INFINITE]: (params?: RouteParams[EAppRoutes.REPOSITORY_INFINITE]) =>
-        Lib.createRepositoryPath(`/${EAppRoutes.REPOSITORY_INFINITE}`, params),
+        Lib.createRepositoryPath(EAppRoutes.REPOSITORY_INFINITE, params),
     [EAppRoutes.NOT_FOUND]: () => routePaths[EAppRoutes.NOT_FOUND],
 };
