@@ -86,5 +86,12 @@
         "highlights": ["i18next", "Мультиязычный интерфейс"]
       }
     }
+  },
+  "repository-layout": {
+    "tabs": {
+      "compare": "📊 Сравнение подходов",
+      "pagination": "📄 Пагинация",
+      "infinite": "♾️ Бесконечный скролл"
+    }
   }
 }
