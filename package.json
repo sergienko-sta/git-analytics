@@ -21,7 +21,9 @@
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest --watch",
     "branch:protection": "sh ./bin/branch-protection.sh",
-    "generate:widget": "node ./scripts/generate-widget.js"
+    "generate:widget": "node ./scripts/generate-widget.js",
+    "generate:feature": "node ./scripts/generate-feature.js",
+    "generate:page": "node ./scripts/generate-page.js"
   },
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
