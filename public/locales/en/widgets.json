@@ -1,7 +1,4 @@
 {
-  "error-display": {
-    "default-title": "Error"
-  },
   "hero-banner": {
     "title": "- Pet Project",
     "description": "Dive deep into GitHub analytics. \nSearch repositories, track trends, \nand explore code with a modern tech stack.",
