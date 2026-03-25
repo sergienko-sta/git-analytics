@@ -39,7 +39,7 @@
         "title": "Пагинация",
         "items": [
           "Хук: <code>useQuery</code> из @tanstack/react-query",
-          "Параметры в URL: <code>?page=1&perPage=30</code>",
+          "Параметры в URL: <code>?q=+language:typescript</code>",
           "Кеширование: по страницам",
           "Prefetching: при наведении на кнопку",
           "Синхронизация: URL ↔ состояние"

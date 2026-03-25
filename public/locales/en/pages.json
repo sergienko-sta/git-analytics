@@ -39,7 +39,7 @@
         "title": "Pagination",
         "items": [
           "Hook: <code>useQuery</code> from @tanstack/react-query",
-          "URL parameters: <code>?page=1&perPage=30</code>",
+          "URL parameters: <code>?q=+language:typescript</code>",
           "Caching: per page",
           "Prefetching: on button hover",
           "Sync: URL ↔ state"
