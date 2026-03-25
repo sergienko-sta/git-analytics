@@ -5,6 +5,8 @@ import * as Widgets from '@widgets';
 
 import * as Features from '@features';
 
+import * as Shared from '@shared';
+
 import * as Hooks from '../hooks';
 
 import * as Styles from './repository-pagination-page.styles';
@@ -23,7 +25,7 @@ export const RepositoryPaginationPage = () => {
                     initialValue={query}
                 />
 
-                <Widgets.ErrorDisplay error={error} title={t('repository.search-error')} />
+                <Shared.ErrorDisplay error={error} title={t('repository.search-error')} />
             </Flex>
 
             {data && (
