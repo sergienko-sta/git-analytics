@@ -61,5 +61,10 @@
     "title": "Поиск репозиториев GitHub",
     "total-repos": "Найдено репозиториев:",
     "search-error": "Ошибка поиска"
+  },
+  "repository-infinite-page": {
+    "title": "Поиск репозиториев GitHub",
+    "description": "Используйте query параметры для поиска. Например: ?q=language:python",
+    "clear-btn": "Очистить поиск"
   }
 }

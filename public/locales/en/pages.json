@@ -61,5 +61,10 @@
     "title": "Search GitHub repositories",
     "total-repos": "Repositories found:",
     "search-error": "Search error"
+  },
+  "repository-infinite-page": {
+    "title": "Search GitHub repositories",
+    "description": "Use query parameters for searching. For example: ?q=language:python",
+    "clear-btn": "Clear search"
   }
 }
