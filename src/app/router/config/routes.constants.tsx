@@ -19,6 +19,10 @@ const RepositoryPaginationPage = Shared.lazyLoad(
         enabled: import.meta.env.DEV,
     },
 );
+const RepositoryInfinitePage = Shared.lazyLoad(() => import('@/pages/repository-infinite-page'), {
+    componentName: 'RepositoryInfinitePage',
+    enabled: import.meta.env.DEV,
+});
 
 export const routes: RouteObject[] = [
     {
@@ -34,12 +38,12 @@ export const routes: RouteObject[] = [
                 element: <RepositoryPage />,
             },
             {
-                path: 'pagination',
+                path: Shared.REPOSITORY_CHILD_ROUTES.PAGINATION,
                 element: <RepositoryPaginationPage />,
             },
             {
-                path: 'infinite',
-                element: <div>STUB</div>,
+                path: Shared.REPOSITORY_CHILD_ROUTES.INFINITE,
+                element: <RepositoryInfinitePage />,
             },
         ],
     },
