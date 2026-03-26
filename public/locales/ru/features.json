@@ -2,5 +2,27 @@
   "search-query": {
     "placeholder": "Введите запрос...",
     "search-button": "Найти"
+  },
+  "virtual-repos-list": {
+    "loading": {
+      "title": "Загрузка репозиториев...",
+      "description": "Пожалуйста, подождите"
+    },
+    "empty": {
+      "title": "Репозитории не найдены",
+      "description": "Попробуйте изменить параметры поиска"
+    },
+    "stats": {
+      "found": "Найдено: {{count}} репозиториев",
+      "found_one": "Найден: {{count}} репозиторий",
+      "found_few": "Найдено: {{count}} репозитория",
+      "found_many": "Найдено: {{count}} репозиториев"
+    },
+    "loadingMore": "Загрузка...",
+    "endOfList": "Все репозитории загружены",
+    "error": {
+      "title": "Ошибка загрузки",
+      "retry": "Повторить"
+    }
   }
 }
