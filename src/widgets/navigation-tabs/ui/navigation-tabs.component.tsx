@@ -1,11 +1,11 @@
 import { memo } from 'react';
 
 import * as Hooks from '../hooks';
+import type * as Model from '../model';
 
 import * as Styles from './navigation-tabs.styles';
-import type * as Types from './navigation-tabs.types';
 
-export const NavigationTabs = memo(({ activeTab, onTabChange }: Types.INavigationTabsProps) => {
+export const NavigationTabs = memo(({ activeTab, onTabChange }: Model.INavigationTabsProps) => {
     const { handleTabChange, tabItems } = Hooks.useNavigationTabs({ onTabChange });
 
     return (
