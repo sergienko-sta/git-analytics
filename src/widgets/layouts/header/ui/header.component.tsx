@@ -19,7 +19,7 @@ export const Header = ({ rightContent }: IHeaderProps) => {
     const { activeTab, handleLogoClick, handleTabChange } = Hooks.useNavigation();
 
     return (
-        <Styles.StyledHeader>
+        <Styles.Header>
             <Styles.LeftSection>
                 <Styles.Logo onClick={handleLogoClick}>{Shared.APP_LOGO_NAME}</Styles.Logo>
             </Styles.LeftSection>
@@ -35,6 +35,6 @@ export const Header = ({ rightContent }: IHeaderProps) => {
                 />
                 {rightContent}
             </Styles.RightSection>
-        </Styles.StyledHeader>
+        </Styles.Header>
     );
 };

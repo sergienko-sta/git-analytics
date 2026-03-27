@@ -17,6 +17,6 @@ export const FullScreenContainer = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: ${({ theme }) => theme.designTokens?.colorBgContainer};
+    background: ${({ theme }) => theme.designTokens.colorBgContainer};
     z-index: 1000;
 `;

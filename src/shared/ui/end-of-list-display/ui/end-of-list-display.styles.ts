@@ -4,12 +4,12 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    padding: 24px;
+    gap: ${({ theme }) => theme.designTokens.marginXS}px;
+    padding: ${({ theme }) => theme.designTokens.paddingLG}px;
     text-align: center;
-    color: ${({ theme }) => theme.designTokens?.colorTextSecondary};
+    color: ${({ theme }) => theme.designTokens.colorTextSecondary};
 `;
 
 export const IconWrapper = styled.span`
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.designTokens.fontSize}px;
 `;

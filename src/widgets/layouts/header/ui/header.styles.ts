@@ -1,15 +1,15 @@
 import { Layout } from 'antd';
 import styled from 'styled-components';
 
-export const StyledHeader = styled(Layout.Header)`
+export const Header = styled(Layout.Header)`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    padding: 0 ${({ theme }) => theme.designTokens.paddingLG}px;
     position: sticky;
     top: 0;
-    z-index: 100;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    z-index: ${({ theme }) => theme.designTokens.zIndexPopupBase};
+    box-shadow: ${({ theme }) => theme.designTokens.boxShadowTertiary};
     height: 64px;
     line-height: 64px;
 `;
@@ -17,13 +17,13 @@ export const StyledHeader = styled(Layout.Header)`
 export const LeftSection = styled.div`
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: ${({ theme }) => theme.designTokens.marginMD}px;
     flex: 1;
 `;
 
 export const Logo = styled.div`
-    font-size: 18px;
-    font-weight: 600;
+    font-size: ${({ theme }) => theme.designTokens.fontSizeLG}px;
+    font-weight: ${({ theme }) => theme.designTokens.fontWeightStrong};
     cursor: pointer;
     white-space: nowrap;
 
@@ -35,7 +35,7 @@ export const Logo = styled.div`
 export const RightSection = styled.div`
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: ${({ theme }) => theme.designTokens.marginMD}px;
     flex: 1;
     justify-content: flex-end;
 `;

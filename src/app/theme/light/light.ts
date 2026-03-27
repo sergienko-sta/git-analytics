@@ -23,6 +23,7 @@ export const light: TThemeConfig = {
         },
         Card: {
             paddingLG: 24,
+            borderRadiusLG: 16,
         },
         Layout: {
             headerBg: '#ffffff',
