@@ -11,7 +11,7 @@ const { getDesignToken } = theme;
 
 export const useThemeMode: Types.TUseThemeMode = () => {
     const [mode, setMode] = useState<Shared.Model.TThemeMode>(() => {
-        const savedMode = localStorage.getItem('theme-mode');
+        const savedMode = localStorage.getItem(Shared.THEME_MODE);
 
         if (
             savedMode === Shared.Model.EThemeMode.LIGHT ||
@@ -28,7 +28,7 @@ export const useThemeMode: Types.TUseThemeMode = () => {
                 currentMode === Shared.Model.EThemeMode.LIGHT
                     ? Shared.Model.EThemeMode.DARK
                     : Shared.Model.EThemeMode.LIGHT;
-            localStorage.setItem('theme-mode', newMode);
+            localStorage.setItem(Shared.THEME_MODE, newMode);
             return newMode;
         });
     }, []);
