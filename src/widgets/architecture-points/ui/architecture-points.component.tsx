@@ -15,9 +15,7 @@ export const ArchitecturePoints = () => {
         <Styles.Container>
             <Styles.SectionTitle>
                 <Title level={2}>{t('architecture-points.section.title')}</Title>
-                <Paragraph type='secondary'>
-                    <Title level={4}>{t('architecture-points.section.description')}</Title>
-                </Paragraph>
+                <Title level={4}>{t('architecture-points.section.description')}</Title>
             </Styles.SectionTitle>
 
             <Row gutter={[24, 24]}>

@@ -12,51 +12,55 @@ const fadeInUp = keyframes`
 `;
 
 export const Container = styled.section`
-    padding: 80px 24px;
-    background: ${({ theme }) => theme.designTokens?.colorBgContainer};
+    padding: ${({ theme }) =>
+        `${theme.designTokens.paddingXL}px ${theme.designTokens.paddingLG}px`};
+    background: ${({ theme }) => theme.designTokens.colorBgContainer};
 
-    @media (max-width: 768px) {
-        padding: 60px 16px;
+    @media (max-width: ${({ theme }) => theme.designTokens.screenMD}px) {
+        padding: ${({ theme }) =>
+            `${theme.designTokens.paddingXL}px ${theme.designTokens.paddingMD}px`};
     }
 `;
 
 export const SectionTitle = styled.div`
     text-align: center;
-    margin-bottom: 64px;
+    margin-bottom: ${({ theme }) => theme.designTokens.marginXXL}px;
 
     h2 {
-        font-size: 36px;
-        font-weight: 700;
-        margin-bottom: 16px;
-        color: ${({ theme }) => theme.designTokens?.colorTextHeading};
+        font-size: ${({ theme }) => theme.designTokens.fontSizeHeading1}px;
+        font-weight: ${({ theme }) => theme.designTokens.fontWeightStrong};
+        margin-bottom: ${({ theme }) => theme.designTokens.marginMD}px;
+        color: ${({ theme }) => theme.designTokens.colorTextHeading};
         letter-spacing: -0.02em;
 
-        @media (max-width: 768px) {
-            font-size: 28px;
+        @media (max-width: ${({ theme }) => theme.designTokens.screenMD}px) {
+            font-size: ${({ theme }) => theme.designTokens.fontSizeHeading2}px;
         }
     }
 
     p {
-        font-size: 18px;
-        color: ${({ theme }) => theme.designTokens?.colorTextSecondary};
+        font-size: ${({ theme }) => theme.designTokens.fontSizeLG}px;
+        color: ${({ theme }) => theme.designTokens.colorTextSecondary};
         max-width: 600px;
         margin: 0 auto;
 
-        @media (max-width: 768px) {
-            font-size: 16px;
+        @media (max-width: ${({ theme }) => theme.designTokens.screenMD}px) {
+            font-size: ${({ theme }) => theme.designTokens.fontSize}px;
         }
     }
 `;
 
 export const FeatureCard = styled.div<{ $color: string }>`
-    background: ${({ theme }) => theme.designTokens?.colorBgContainer};
-    border-radius: ${({ theme }) => theme.designTokens?.borderRadiusLG}px;
-    padding: 32px 24px;
+    background: ${({ theme }) => theme.designTokens.colorBgContainer};
+    border-radius: ${({ theme }) => theme.designTokens.borderRadiusLG}px;
+    padding: ${({ theme }) =>
+        `${theme.designTokens.paddingXL}px ${theme.designTokens.paddingLG}px`};
     text-align: center;
     height: 100%;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid ${({ theme }) => theme.designTokens?.colorBorderSecondary};
-    animation: ${fadeInUp} 0.5s ease-out forwards;
+    transition: all ${({ theme }) => theme.designTokens.motionDurationMid}
+        cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid ${({ theme }) => theme.designTokens.colorBorderSecondary};
+    animation: ${fadeInUp} ${({ theme }) => theme.designTokens.motionDurationSlow} ease-out forwards;
     animation-delay: ${() => {
         // Динамическая задержка на основе позиции (будет передана через проп)
         return '0s';
@@ -65,24 +69,25 @@ export const FeatureCard = styled.div<{ $color: string }>`
     &:hover {
         transform: translateY(-4px);
         border-color: ${({ $color }) => $color};
-        box-shadow: ${({ theme }) => theme.designTokens?.boxShadowSecondary};
+        box-shadow: ${({ theme }) => theme.designTokens.boxShadowSecondary};
     }
 
     h3 {
-        font-size: 20px;
-        font-weight: 600;
-        margin: 20px 0 12px;
-        color: ${({ theme }) => theme.designTokens?.colorTextHeading};
+        font-size: ${({ theme }) => theme.designTokens.fontSizeLG}px;
+        font-weight: ${({ theme }) => theme.designTokens.fontWeightStrong};
+        margin: ${({ theme }) => theme.designTokens.marginLG}px 0
+            ${({ theme }) => theme.designTokens.marginSM}px;
+        color: ${({ theme }) => theme.designTokens.colorTextHeading};
 
-        @media (max-width: 768px) {
-            font-size: 18px;
+        @media (max-width: ${({ theme }) => theme.designTokens.screenMD}px) {
+            font-size: ${({ theme }) => theme.designTokens.fontSize}px;
         }
     }
 
     p {
-        font-size: 14px;
+        font-size: ${({ theme }) => theme.designTokens.fontSizeSM}px;
         line-height: 1.6;
-        color: ${({ theme }) => theme.designTokens?.colorTextSecondary};
+        color: ${({ theme }) => theme.designTokens.colorTextSecondary};
         margin: 0;
     }
 `;
@@ -98,7 +103,7 @@ export const IconWrapper = styled.div<{ $color: string }>`
     border-radius: 50%;
     font-size: 32px;
     color: ${({ $color }) => $color};
-    transition: transform 0.3s ease;
+    transition: transform ${({ theme }) => theme.designTokens.motionDurationMid} ease;
 
     ${FeatureCard}:hover & {
         transform: scale(1.05);

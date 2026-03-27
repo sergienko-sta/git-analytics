@@ -9,20 +9,23 @@ export const Container = styled.div`
     min-height: 400px;
     width: 100%;
     text-align: center;
-    padding: 24px;
+    padding: ${({ theme }) => theme.designTokens.paddingLG}px;
 `;
 
 export const IconWrapper = styled.div`
     font-size: 48px;
-    margin-bottom: 16px;
-    color: ${({ theme }) => theme.designTokens?.colorTextSecondary};
+    margin-bottom: ${({ theme }) => theme.designTokens.marginMD}px;
+    color: ${({ theme }) => theme.designTokens.colorTextSecondary};
 `;
 
-export const Description = styled(Typography.Title)`
-    margin-top: 8px;
-    font-size: 14px;
+export const Description = styled(Typography.Text)`
+    margin-top: ${({ theme }) => theme.designTokens.marginXS}px;
+    font-size: ${({ theme }) => theme.designTokens.fontSize}px;
+    color: ${({ theme }) => theme.designTokens.colorTextSecondary};
+    max-width: ${({ theme }) => theme.designTokens.screenXS}px;
+    line-height: 1.5;
 `;
 
 export const ActionWrapper = styled.div`
-    margin-top: 24px;
+    margin-top: ${({ theme }) => theme.designTokens.marginLG}px;
 `;
