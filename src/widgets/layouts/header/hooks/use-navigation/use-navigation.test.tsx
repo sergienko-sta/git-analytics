@@ -71,7 +71,7 @@ describe('useNavigation', () => {
         });
     });
 
-    it('✅ should initialize with HOME as active tab', () => {
+    it('should initialize with HOME as active tab', () => {
         mockNavigationService.getKeyByPath.mockReturnValueOnce(
             Shared.EAppRoutes.HOME,
         );
@@ -83,7 +83,7 @@ describe('useNavigation', () => {
         expect(mockNavigationService.getDefaultKey).not.toHaveBeenCalled();
     });
 
-    it('✅ should use default key when path not found', () => {
+    it('should use default key when path not found', () => {
         mockNavigationService.getKeyByPath.mockReturnValueOnce(undefined);
 
         const { result } = renderHook(() => useNavigation());
@@ -93,7 +93,7 @@ describe('useNavigation', () => {
         expect(result.current.activeTab).toBe(Shared.EAppRoutes.HOME);
     });
 
-    it('✅ should handle logo click correctly when on home', () => {
+    it('should handle logo click correctly when on home', () => {
         mockNavigationService.isHomeKey.mockReturnValue(true);
 
         const { result } = renderHook(() => useNavigation());
@@ -108,7 +108,7 @@ describe('useNavigation', () => {
         expect(mockTo).not.toHaveBeenCalled();
     });
 
-    it('✅ should handle logo click correctly if active tab is not Home', () => {
+    it('should handle logo click correctly if active tab is not Home', () => {
         // Сначала устанавливаем активный таб не HOME
         mockNavigationService.getKeyByPath.mockReturnValue(
             Shared.EAppRoutes.PROFILE,
@@ -129,7 +129,7 @@ describe('useNavigation', () => {
         expect(mockTo).toHaveBeenCalledWith(Shared.EAppRoutes.HOME, {});
     });
 
-    it('✅ should handle tab change correctly', () => {
+    it('should handle tab change correctly', () => {
         const { result } = renderHook(() => useNavigation());
 
         act(() => {
@@ -144,7 +144,7 @@ describe('useNavigation', () => {
         expect(result.current.activeTab).toBe(Shared.EAppRoutes.PROFILE);
     });
 
-    it('✅ should skip navigation and state update when changing to the same tab', () => {
+    it('should skip navigation and state update when changing to the same tab', () => {
         const { result } = renderHook(() => useNavigation());
 
         vi.clearAllMocks();
@@ -160,7 +160,7 @@ describe('useNavigation', () => {
         expect(result.current.activeTab).toBe(Shared.EAppRoutes.HOME);
     });
 
-    it('✅ should handle multiple tab changes', () => {
+    it('should handle multiple tab changes', () => {
         const { result } = renderHook(() => useNavigation());
 
         act(() => {
@@ -186,7 +186,7 @@ describe('useNavigation', () => {
         expect(mockTo).toHaveBeenCalledTimes(2);
     });
 
-    it('✅ should update active tab when location changes', () => {
+    it('should update active tab when location changes', () => {
         const { result, rerender } = renderHook(() => useNavigation());
 
         // Меняем location
@@ -211,7 +211,7 @@ describe('useNavigation', () => {
         expect(result.current.activeTab).toBe(Shared.EAppRoutes.PROFILE);
     });
 
-    it('✅ should not update active tab when location change returns no key', () => {
+    it('should not update active tab when location change returns no key', () => {
         const { result, rerender } = renderHook(() => useNavigation());
         const currentTab = result.current.activeTab;
         mockUseLocation.mockReturnValue({
@@ -231,7 +231,7 @@ describe('useNavigation', () => {
         expect(result.current.activeTab).toBe(currentTab);
     });
 
-    it('✅ should memoize callbacks', () => {
+    it('should memoize callbacks', () => {
         const { result, rerender } = renderHook(() => useNavigation());
 
         const firstHandleLogoClick = result.current.handleLogoClick;
@@ -243,7 +243,7 @@ describe('useNavigation', () => {
         expect(result.current.handleTabChange).toBe(firstHandleTabChange);
     });
 
-    it('✅ should handle tab change with invalid key', () => {
+    it('should handle tab change with invalid key', () => {
         mockNavigationService.getItemByKey.mockReturnValue(undefined);
 
         const { result } = renderHook(() => useNavigation());
@@ -260,7 +260,7 @@ describe('useNavigation', () => {
         expect(result.current.activeTab).toBe(currentTab);
     });
 
-    it('✅ should handle location change to same path', () => {
+    it('should handle location change to same path', () => {
         const { result, rerender } = renderHook(() => useNavigation());
         const currentTab = result.current.activeTab;
         vi.clearAllMocks();

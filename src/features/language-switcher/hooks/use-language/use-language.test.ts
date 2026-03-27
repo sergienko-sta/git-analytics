@@ -44,20 +44,20 @@ describe('useLanguage', () => {
     });
 
     describe('initialization', () => {
-        it('✅ should return current language from i18n', () => {
+        it('should return current language from i18n', () => {
             const { result } = renderHook(() => useLanguage());
 
             expect(result.current.currentLanguage).toBe('ru');
         });
 
-        it('✅ should handle different initial languages', () => {
+        it('should handle different initial languages', () => {
             mockI18n.language = 'en';
             const { result } = renderHook(() => useLanguage());
 
             expect(result.current.currentLanguage).toBe('en');
         });
 
-        it('✅ should have stable references between renders', () => {
+        it('should have stable references between renders', () => {
             const { result, rerender } = renderHook(() => useLanguage());
 
             const firstChangeLanguage = result.current.changeLanguage;
@@ -71,7 +71,7 @@ describe('useLanguage', () => {
     });
 
     describe('changeLanguage', () => {
-        it('✅ should call i18n.changeLanguage with correct parameter', () => {
+        it('should call i18n.changeLanguage with correct parameter', () => {
             const { result } = renderHook(() => useLanguage());
 
             act(() => {
@@ -82,7 +82,7 @@ describe('useLanguage', () => {
             expect(mockChangeLanguage).toHaveBeenCalledTimes(1);
         });
 
-        it('✅ should save selected language to localStorage', () => {
+        it('should save selected language to localStorage', () => {
             const { result } = renderHook(() => useLanguage());
 
             act(() => {
@@ -92,7 +92,7 @@ describe('useLanguage', () => {
             expect(window.localStorage.getItem('preferredLanguage')).toBe('en');
         });
 
-        it('✅ should handle multiple language changes', () => {
+        it('should handle multiple language changes', () => {
             const { result } = renderHook(() => useLanguage());
 
             act(() => {
@@ -108,7 +108,7 @@ describe('useLanguage', () => {
             expect(mockChangeLanguage).toHaveBeenCalledTimes(2);
         });
 
-        it('✅ should handle same language change gracefully', () => {
+        it('should handle same language change gracefully', () => {
             const { result } = renderHook(() => useLanguage());
 
             act(() => {
@@ -119,7 +119,7 @@ describe('useLanguage', () => {
             expect(window.localStorage.getItem('preferredLanguage')).toBe('ru');
         });
 
-        it('✅ should handle i18n.changeLanguage error', () => {
+        it('should handle i18n.changeLanguage error', () => {
             mockChangeLanguage.mockRejectedValueOnce(
                 new Error('Network error'),
             );
@@ -138,7 +138,7 @@ describe('useLanguage', () => {
             });
         });
 
-        it('✅ should preserve language selection after error', () => {
+        it('should preserve language selection after error', () => {
             mockChangeLanguage
                 .mockRejectedValueOnce(new Error('Network error'))
                 .mockResolvedValueOnce(undefined);
@@ -172,14 +172,14 @@ describe('useLanguage', () => {
     });
 
     describe('isLanguageActive', () => {
-        it('✅ should return true for active language', () => {
+        it('should return true for active language', () => {
             const { result } = renderHook(() => useLanguage());
 
             expect(result.current.isLanguageActive('ru')).toBe(true);
             expect(result.current.isLanguageActive('en')).toBe(false);
         });
 
-        it('✅ should update when language changes', () => {
+        it('should update when language changes', () => {
             const { result, rerender } = renderHook(() => useLanguage());
 
             expect(result.current.isLanguageActive('ru')).toBe(true);
@@ -196,7 +196,7 @@ describe('useLanguage', () => {
             expect(result.current.isLanguageActive('ru')).toBe(false);
         });
 
-        it('✅ should handle all supported languages', () => {
+        it('should handle all supported languages', () => {
             const { result } = renderHook(() => useLanguage());
 
             expect(result.current.isLanguageActive('en')).toBe(false);
@@ -205,7 +205,7 @@ describe('useLanguage', () => {
     });
 
     describe('integration with localStorage', () => {
-        it('✅ should save language to localStorage', () => {
+        it('should save language to localStorage', () => {
             const { result } = renderHook(() => useLanguage());
 
             act(() => {
@@ -219,7 +219,7 @@ describe('useLanguage', () => {
             });
         });
 
-        it('✅ should update localStorage on multiple changes', () => {
+        it('should update localStorage on multiple changes', () => {
             const { result } = renderHook(() => useLanguage());
 
             act(() => {
@@ -243,7 +243,7 @@ describe('useLanguage', () => {
             });
         });
 
-        it('✅ should have correct length after changes', () => {
+        it('should have correct length after changes', () => {
             const { result } = renderHook(() => useLanguage());
 
             expect(window.localStorage.length).toBe(0);
@@ -260,7 +260,7 @@ describe('useLanguage', () => {
     });
 
     describe('edge cases', () => {
-        it('✅ should handle changeLanguage with unsupported language', () => {
+        it('should handle changeLanguage with unsupported language', () => {
             const { result } = renderHook(() => useLanguage());
 
             act(() => {
@@ -276,7 +276,7 @@ describe('useLanguage', () => {
             });
         });
 
-        it('✅ should handle rapid language changes', () => {
+        it('should handle rapid language changes', () => {
             const { result } = renderHook(() => useLanguage());
 
             act(() => {

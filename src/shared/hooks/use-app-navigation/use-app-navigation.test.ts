@@ -65,7 +65,7 @@ describe('useAppNavigate', () => {
     });
 
     describe('to function', () => {
-        it('✅ should navigate to HOME route without parameters', () => {
+        it('should navigate to HOME route without parameters', () => {
             const { result } = renderHook(() => useAppNavigate());
 
             act(() => {
@@ -76,7 +76,7 @@ describe('useAppNavigate', () => {
             expect(mockHomeFn).toHaveBeenCalled();
         });
 
-        it('✅ should navigate to NOT_FOUND route without parameters', () => {
+        it('should navigate to NOT_FOUND route without parameters', () => {
             const { result } = renderHook(() => useAppNavigate());
 
             act(() => {
@@ -87,7 +87,7 @@ describe('useAppNavigate', () => {
             expect(mockNotFoundFn).toHaveBeenCalled();
         });
 
-        it('✅ should navigate to PROFILE route with login parameter', () => {
+        it('should navigate to PROFILE route with login parameter', () => {
             const { result } = renderHook(() => useAppNavigate());
             const params: RouteParams[EAppRoutes.PROFILE] = {
                 login: 'john_doe',
@@ -101,7 +101,7 @@ describe('useAppNavigate', () => {
             expect(mockProfileFn).toHaveBeenCalledWith(params);
         });
 
-        it('✅ should call isRouteWithoutParams for route determination', () => {
+        it('should call isRouteWithoutParams for route determination', () => {
             const { result } = renderHook(() => useAppNavigate());
 
             act(() => {
@@ -113,7 +113,7 @@ describe('useAppNavigate', () => {
             );
         });
 
-        it('✅ should handle different login values for PROFILE route', () => {
+        it('should handle different login values for PROFILE route', () => {
             const { result } = renderHook(() => useAppNavigate());
             const testCases: RouteParams[EAppRoutes.PROFILE][] = [
                 { login: 'alice_smith' },
@@ -137,7 +137,7 @@ describe('useAppNavigate', () => {
             });
         });
 
-        it('✅ should handle undefined parameters for PROFILE route', () => {
+        it('should handle undefined parameters for PROFILE route', () => {
             const { result } = renderHook(() => useAppNavigate());
 
             act(() => {
@@ -149,7 +149,7 @@ describe('useAppNavigate', () => {
             expect(mockProfileFn).toHaveBeenCalledWith(undefined);
         });
 
-        it('✅ should handle empty parameter object for PROFILE route', () => {
+        it('should handle empty parameter object for PROFILE route', () => {
             const { result } = renderHook(() => useAppNavigate());
 
             act(() => {
@@ -163,7 +163,7 @@ describe('useAppNavigate', () => {
     });
 
     describe('back function', () => {
-        it('✅ should navigate back one step', () => {
+        it('should navigate back one step', () => {
             const { result } = renderHook(() => useAppNavigate());
 
             act(() => {
@@ -174,7 +174,7 @@ describe('useAppNavigate', () => {
             expect(mockNavigate).toHaveBeenCalledWith(-1);
         });
 
-        it('✅ should navigate back multiple steps', () => {
+        it('should navigate back multiple steps', () => {
             const { result } = renderHook(() => useAppNavigate());
 
             act(() => {
@@ -191,7 +191,7 @@ describe('useAppNavigate', () => {
     });
 
     describe('forward function', () => {
-        it('✅ should navigate forward one step', () => {
+        it('should navigate forward one step', () => {
             const { result } = renderHook(() => useAppNavigate());
 
             act(() => {
@@ -202,7 +202,7 @@ describe('useAppNavigate', () => {
             expect(mockNavigate).toHaveBeenCalledWith(1);
         });
 
-        it('✅ should navigate forward multiple steps', () => {
+        it('should navigate forward multiple steps', () => {
             const { result } = renderHook(() => useAppNavigate());
 
             act(() => {
@@ -217,7 +217,7 @@ describe('useAppNavigate', () => {
     });
 
     describe('integration tests', () => {
-        it('✅ should handle complete navigation sequence', () => {
+        it('should handle complete navigation sequence', () => {
             const { result } = renderHook(() => useAppNavigate());
 
             act(() => {
@@ -241,7 +241,7 @@ describe('useAppNavigate', () => {
     });
 
     describe('error handling', () => {
-        it('✅ should throw error for non-existent routes', () => {
+        it('should throw error for non-existent routes', () => {
             const { result } = renderHook(() => useAppNavigate());
             const nonExistentRoute = 'NON_EXISTENT_ROUTE' as EAppRoutes;
 
@@ -254,7 +254,7 @@ describe('useAppNavigate', () => {
     });
 
     describe('memoization', () => {
-        it('✅ should memoize all functions', () => {
+        it('should memoize all functions', () => {
             const { result, rerender } = renderHook(() => useAppNavigate());
             const firstToRef = result.current.to;
             const firstBackRef = result.current.back;

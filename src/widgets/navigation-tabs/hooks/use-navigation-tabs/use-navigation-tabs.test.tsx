@@ -40,7 +40,7 @@ describe('useNavigationTabs', () => {
         vi.clearAllMocks();
     });
 
-    it('✅ should initialize with correct tab items', () => {
+    it('should initialize with correct tab items', () => {
         const { result } = renderHook(() =>
             useNavigationTabs({ onTabChange: mockOnTabChange }),
         );
@@ -55,7 +55,7 @@ describe('useNavigationTabs', () => {
         expect(result.current.tabItems[0]?.label.type).toBeDefined();
     });
 
-    it('✅ should handle tab change correctly', () => {
+    it('should handle tab change correctly', () => {
         const { result } = renderHook(() =>
             useNavigationTabs({ onTabChange: mockOnTabChange }),
         );
@@ -68,7 +68,7 @@ describe('useNavigationTabs', () => {
         expect(mockOnTabChange).toHaveBeenCalledWith(Shared.EAppRoutes.PROFILE);
     });
 
-    it('✅ should handle multiple tab changes', () => {
+    it('should handle multiple tab changes', () => {
         const { result } = renderHook(() =>
             useNavigationTabs({ onTabChange: mockOnTabChange }),
         );
@@ -88,7 +88,7 @@ describe('useNavigationTabs', () => {
         expect(mockOnTabChange).toHaveBeenCalledTimes(2);
     });
 
-    it('✅ should memoize tab items', () => {
+    it('should memoize tab items', () => {
         const { result, rerender } = renderHook(() =>
             useNavigationTabs({ onTabChange: mockOnTabChange }),
         );
@@ -100,7 +100,7 @@ describe('useNavigationTabs', () => {
         expect(result.current.tabItems).toBe(firstTabItems);
     });
 
-    it('✅ should memoize handleTabChange callback', () => {
+    it('should memoize handleTabChange callback', () => {
         const { result, rerender } = renderHook(() =>
             useNavigationTabs({ onTabChange: mockOnTabChange }),
         );
@@ -112,7 +112,7 @@ describe('useNavigationTabs', () => {
         expect(result.current.handleTabChange).toBe(firstHandleTabChange);
     });
 
-    it('✅ should recreate handleTabChange when onTabChange changes', () => {
+    it('should recreate handleTabChange when onTabChange changes', () => {
         const { result, rerender } = renderHook(
             ({ onTabChange }) => useNavigationTabs({ onTabChange }),
             {
@@ -128,7 +128,7 @@ describe('useNavigationTabs', () => {
         expect(result.current.handleTabChange).not.toBe(firstHandleTabChange);
     });
 
-    it('✅ should render tab items with correct labels', () => {
+    it('should render tab items with correct labels', () => {
         const { result } = renderHook(() =>
             useNavigationTabs({ onTabChange: mockOnTabChange }),
         );
@@ -139,7 +139,7 @@ describe('useNavigationTabs', () => {
         });
     });
 
-    it('✅ should work with empty tab items', () => {
+    it('should work with empty tab items', () => {
         vi.mocked(Shared).NAVIGATION_TAB_ITEMS = [];
 
         const { result } = renderHook(() =>
