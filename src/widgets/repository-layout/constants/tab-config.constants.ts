@@ -13,12 +13,12 @@ export const TAB_CONFIG: Model.TabConfig[] = [
         key: 'pagination',
         route: Shared.EAppRoutes.REPOSITORY_PAGINATION,
         translationKey: 'tabs.pagination',
-        check: (path: string) => path.includes('pagination'),
+        check: (path: string) => path.includes(Shared.REPOSITORY_CHILD_ROUTES.PAGINATION),
     },
     {
         key: 'infinite',
         route: Shared.EAppRoutes.REPOSITORY_INFINITE,
         translationKey: 'tabs.infinite',
-        check: (path: string) => path.includes('infinite'),
+        check: (path: string) => path.includes(Shared.REPOSITORY_CHILD_ROUTES.INFINITE),
     },
 ];
