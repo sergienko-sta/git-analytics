@@ -4,52 +4,21 @@ import * as Widgets from '@widgets';
 
 import * as Shared from '@shared';
 
-const HomePage = Shared.lazyLoad(() => import('@pages/home'), {
-    componentName: 'HomePage',
-    enabled: import.meta.env.DEV,
-});
-const RepositoryPage = Shared.lazyLoad(() => import('@/pages/repository-page'), {
-    componentName: 'RepositoryPage',
-    enabled: import.meta.env.DEV,
-});
-const RepositoryPaginationPage = Shared.lazyLoad(
-    () => import('@/pages/repository-pagination-page'),
-    {
-        componentName: 'RepositoryPaginationPage',
-        enabled: import.meta.env.DEV,
-    },
-);
-const RepositoryInfinitePage = Shared.lazyLoad(() => import('@/pages/repository-infinite-page'), {
-    componentName: 'RepositoryInfinitePage',
-    enabled: import.meta.env.DEV,
-});
+import * as Lazy from './lazy-load-pages.constants';
+import { repositoryChildrenRoutes } from './repository-children.constants';
 
 export const routes: RouteObject[] = [
     {
         path: Shared.routePaths[Shared.EAppRoutes.HOME],
-        element: <HomePage />,
+        element: <Lazy.HomePage />,
     },
     {
         path: Shared.routePaths[Shared.EAppRoutes.REPOSITORY],
         element: <Widgets.RepositoryLayout />,
-        children: [
-            {
-                index: true,
-                element: <RepositoryPage />,
-            },
-            {
-                path: Shared.REPOSITORY_CHILD_ROUTES.PAGINATION,
-                element: <RepositoryPaginationPage />,
-            },
-            {
-                path: Shared.REPOSITORY_CHILD_ROUTES.INFINITE,
-                element: <RepositoryInfinitePage />,
-            },
-        ],
+        children: repositoryChildrenRoutes,
     },
     {
         path: Shared.routePaths[Shared.EAppRoutes.NOT_FOUND],
-        // TODO: add NotFound component
-        element: <div>NOT FOUND</div>,
+        element: <div>NOT FOUND</div>, // TODO: replace with NotFound component
     },
 ];
