@@ -6,7 +6,7 @@ import { navigationService } from './navigation-service.lib';
 
 describe('navigationService', () => {
     describe('getItemByKey', () => {
-        it('✅ should return navigation item for existing key', () => {
+        it('should return navigation item for existing key', () => {
             const result = navigationService.getItemByKey(EAppRoutes.HOME);
 
             expect(result).toBeDefined();
@@ -14,7 +14,7 @@ describe('navigationService', () => {
             expect(result?.path).toBe('/');
         });
 
-        it('✅ should return undefined for non-existent key', () => {
+        it('should return undefined for non-existent key', () => {
             const result = navigationService.getItemByKey(
                 'non-existent' as EAppRoutes,
             );
@@ -22,7 +22,7 @@ describe('navigationService', () => {
             expect(result).toBeUndefined();
         });
 
-        it('✅ should return correct item for each key in NAVIGATION_TAB_ITEMS', () => {
+        it('should return correct item for each key in NAVIGATION_TAB_ITEMS', () => {
             NAVIGATION_TAB_ITEMS.forEach((item) => {
                 const result = navigationService.getItemByKey(item.key);
                 expect(result).toEqual(item);
@@ -31,26 +31,26 @@ describe('navigationService', () => {
     });
 
     describe('getKeyByPath', () => {
-        it('✅ should return key for existing path', () => {
+        it('should return key for existing path', () => {
             const result = navigationService.getKeyByPath('/');
 
             expect(result).toBe(EAppRoutes.HOME);
         });
 
-        it('✅ should return undefined for non-existent path', () => {
+        it('should return undefined for non-existent path', () => {
             const result = navigationService.getKeyByPath('/non-existent-path');
 
             expect(result).toBeUndefined();
         });
 
-        it('✅ should return correct key for each path in NAVIGATION_TAB_ITEMS', () => {
+        it('should return correct key for each path in NAVIGATION_TAB_ITEMS', () => {
             NAVIGATION_TAB_ITEMS.forEach((item) => {
                 const result = navigationService.getKeyByPath(item.path);
                 expect(result).toBe(item.key);
             });
         });
 
-        it('✅ should handle paths with trailing slashes correctly', () => {
+        it('should handle paths with trailing slashes correctly', () => {
             const result = navigationService.getKeyByPath('/users/');
 
             expect(result).toBeUndefined();
@@ -58,13 +58,13 @@ describe('navigationService', () => {
     });
 
     describe('isHomeKey', () => {
-        it('✅ should return true for HOME key', () => {
+        it('should return true for HOME key', () => {
             const result = navigationService.isHomeKey(EAppRoutes.HOME);
 
             expect(result).toBe(true);
         });
 
-        it('✅ should return false for non-HOME keys', () => {
+        it('should return false for non-HOME keys', () => {
             const nonHomeKeys = [
                 EAppRoutes.PROFILE,
                 EAppRoutes.REPOSITORY,
@@ -77,7 +77,7 @@ describe('navigationService', () => {
             });
         });
 
-        it('✅ should handle undefined or null gracefully', () => {
+        it('should handle undefined or null gracefully', () => {
             // @ts-expect-error - testing runtime behavior with invalid input
             const resultWithUndefined = navigationService.isHomeKey(undefined);
             // @ts-expect-error - testing runtime behavior with invalid input
@@ -89,13 +89,13 @@ describe('navigationService', () => {
     });
 
     describe('getDefaultKey', () => {
-        it('✅ should return HOME as default key', () => {
+        it('should return HOME as default key', () => {
             const result = navigationService.getDefaultKey();
 
             expect(result).toBe(EAppRoutes.HOME);
         });
 
-        it('✅ should always return the same value', () => {
+        it('should always return the same value', () => {
             const firstCall = navigationService.getDefaultKey();
             const secondCall = navigationService.getDefaultKey();
             const thirdCall = navigationService.getDefaultKey();
@@ -109,7 +109,7 @@ describe('navigationService', () => {
     });
 
     describe('integration tests', () => {
-        it('✅ should maintain consistency between getItemByKey and getKeyByPath', () => {
+        it('should maintain consistency between getItemByKey and getKeyByPath', () => {
             NAVIGATION_TAB_ITEMS.forEach((item) => {
                 const keyByPath = navigationService.getKeyByPath(item.path);
                 expect(keyByPath).toBe(item.key);
@@ -120,7 +120,7 @@ describe('navigationService', () => {
             });
         });
 
-        it('✅ should correctly identify home key across different methods', () => {
+        it('should correctly identify home key across different methods', () => {
             const homeItem = NAVIGATION_TAB_ITEMS.find(
                 (item) => item.key === EAppRoutes.HOME,
             );
@@ -135,7 +135,7 @@ describe('navigationService', () => {
             );
         });
 
-        it('✅ should handle all routes from NAVIGATION_TAB_ITEMS', () => {
+        it('should handle all routes from NAVIGATION_TAB_ITEMS', () => {
             const allKeys = NAVIGATION_TAB_ITEMS.map((item) => item.key);
             const allPaths = NAVIGATION_TAB_ITEMS.map((item) => item.path);
 
@@ -154,25 +154,25 @@ describe('navigationService', () => {
     });
 
     describe('edge cases', () => {
-        it('✅ should handle empty string as path', () => {
+        it('should handle empty string as path', () => {
             const result = navigationService.getKeyByPath('');
 
             expect(result).toBeUndefined();
         });
 
-        it('✅ should handle paths with query parameters', () => {
+        it('should handle paths with query parameters', () => {
             const result = navigationService.getKeyByPath('/users?tab=profile');
 
             expect(result).toBeUndefined();
         });
 
-        it('✅ should handle paths with hash', () => {
+        it('should handle paths with hash', () => {
             const result = navigationService.getKeyByPath('/users#section');
 
             expect(result).toBeUndefined();
         });
 
-        it('✅ should be case sensitive for paths', () => {
+        it('should be case sensitive for paths', () => {
             const result = navigationService.getKeyByPath('/USERS');
 
             expect(result).toBeUndefined();
