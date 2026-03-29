@@ -37,6 +37,13 @@ vi.mock('@shared', () => ({
         REPOSITORY: 'repository',
         NOT_FOUND: 'not_found',
     },
+    getFirstPathSegment: (pathname: string) => {
+        if (!pathname) return '';
+        if (pathname === '/') return '/';
+        const cleanPath = pathname.split('?')[0]?.split('#')[0];
+        const match = cleanPath?.match(/^\/[^/]+/);
+        return match?.[0] ?? '';
+    },
 }));
 
 const mockUseLocation = useLocation as unknown as ReturnType<typeof vi.fn>;
