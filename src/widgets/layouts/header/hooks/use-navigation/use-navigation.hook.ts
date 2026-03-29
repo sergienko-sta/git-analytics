@@ -10,15 +10,19 @@ export const useNavigation: Types.TUseNavigation = () => {
     const location = useLocation();
     const [activeTab, setActiveTab] = useState(
         () =>
-            Shared.navigationService.getKeyByPath(location.pathname) ??
+            Shared.navigationService.getKeyByPath(Shared.getFirstPathSegment(location.pathname)) ??
             Shared.navigationService.getDefaultKey(),
     );
 
     useEffect(() => {
-        const key = Shared.navigationService.getKeyByPath(location.pathname);
+        const currentPathKey = Shared.navigationService.getKeyByPath(
+            Shared.getFirstPathSegment(location.pathname),
+        );
 
-        if (key) {
-            setActiveTab(key);
+        if (currentPathKey) {
+            setActiveTab((prevTab) => {
+                return prevTab !== currentPathKey ? currentPathKey : prevTab;
+            });
         }
     }, [location.pathname]);
 
@@ -26,19 +30,28 @@ export const useNavigation: Types.TUseNavigation = () => {
         (key: Shared.EAppRoutes) => {
             const tab = Shared.navigationService.getItemByKey(key);
 
-            if (tab && tab.key !== activeTab) {
-                setActiveTab(tab.key);
-                to(tab.key, {});
+            if (tab) {
+                setActiveTab((prev) => {
+                    if (prev !== tab.key) {
+                        to(tab.key, {});
+                        return tab.key;
+                    }
+                    return prev;
+                });
             }
         },
-        [to, activeTab],
+        [to],
     );
 
     const handleLogoClick = useCallback(() => {
-        if (!Shared.navigationService.isHomeKey(activeTab)) {
+        const currentPath = Shared.navigationService.getKeyByPath(
+            Shared.getFirstPathSegment(location.pathname),
+        );
+
+        if (currentPath && !Shared.navigationService.isHomeKey(currentPath)) {
             to(Shared.navigationService.getDefaultKey(), {});
         }
-    }, [to, activeTab]);
+    }, [to, location.pathname]);
 
     return {
         activeTab,
