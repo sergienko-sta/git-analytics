@@ -1,6 +1,6 @@
 import { theme } from 'antd';
 
-import type { TThemeConfig } from '../types';
+import type { TThemeConfig } from '../theme.types';
 
 export const light: TThemeConfig = {
     algorithm: theme.defaultAlgorithm,
@@ -23,6 +23,7 @@ export const light: TThemeConfig = {
         },
         Card: {
             paddingLG: 24,
+            borderRadiusLG: 16,
         },
         Layout: {
             headerBg: '#ffffff',

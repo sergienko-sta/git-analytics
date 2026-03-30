@@ -1,0 +1,88 @@
+import { Outlet, RouterProvider } from 'react-router-dom';
+import { act, render, screen, waitFor } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+
+import {
+    createAppRouter,
+    type ICreateRouterOptions,
+} from './create-app-router.lib';
+
+const mockRoutes = [
+    {
+        path: 'test',
+        element: <div data-testid='test-page'>Test Page</div>,
+    },
+    {
+        path: 'about',
+        element: <div data-testid='about-page'>About Page</div>,
+    },
+];
+
+vi.mock('../constants', () => ({
+    EAppRoutes: {
+        HOME: 'home',
+    },
+    routePaths: {
+        home: '/',
+    },
+}));
+
+vi.mock('@widgets', () => ({
+    RootLayout: () => {
+        const MockRootLayout = () => (
+            <div data-testid='root-layout'>
+                Root Layout
+                <div data-testid='outlet-container'>
+                    <Outlet />
+                </div>
+            </div>
+        );
+        MockRootLayout.displayName = 'RootLayout';
+        return <MockRootLayout />;
+    },
+}));
+
+const MockRootLayout = () => (
+    <div data-testid='root-layout'>
+        Root Layout
+        <div data-testid='outlet-container'>
+            <Outlet />
+        </div>
+    </div>
+);
+describe('createAppRouter', () => {
+    const defaultOptions: ICreateRouterOptions = {
+        rootElement: <MockRootLayout />,
+        errorElement: <div data-testid='error-element'>Error</div>,
+        children: mockRoutes,
+    };
+    it('should render outlet content when navigating', async () => {
+        const router = createAppRouter(defaultOptions);
+
+        render(<RouterProvider router={router} />);
+
+        expect(screen.getByTestId('root-layout')).toBeInTheDocument();
+        expect(screen.queryByTestId('test-page')).not.toBeInTheDocument();
+
+        await act(async () => {
+            await router.navigate('/test');
+        });
+
+        await waitFor(() => {
+            expect(screen.getByTestId('test-page')).toBeInTheDocument();
+        });
+
+        const outletContainer = screen.getByTestId('outlet-container');
+        expect(outletContainer).toContainElement(
+            screen.getByTestId('test-page'),
+        );
+
+        await act(async () => {
+            await router.navigate('/about');
+        });
+
+        await waitFor(() => {
+            expect(screen.getByTestId('about-page')).toBeInTheDocument();
+        });
+    });
+});

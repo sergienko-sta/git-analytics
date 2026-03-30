@@ -157,59 +157,50 @@ export default [
                 'error',
                 {
                     zones: [
-                        // app не может импортировать из pages, widgets, features, entities
+                        // 1. Shared - НИЧЕГО НЕ ИМПОРТИРУЕТ из других слоев
                         {
-                            target: './src/app',
-                            from: './src/pages',
-                            message: 'App layer cannot import from pages',
+                            target: './src/shared',
+                            from: './src',
+                            except: ['./shared'],
+                            message: 'Shared cannot import from other layers',
                         },
+
+                        // 2. Entities - импортирует ТОЛЬКО из shared
                         {
-                            target: './src/app',
-                            from: './src/widgets',
-                            message: 'App layer cannot import from widgets',
+                            target: './src/entities',
+                            from: './src',
+                            except: ['./entities', './shared'],
+                            message: 'Entities can only import from shared',
                         },
-                        {
-                            target: './src/app',
-                            from: './src/features',
-                            message: 'App layer cannot import from features',
-                        },
-                        {
-                            target: './src/app',
-                            from: './src/entities',
-                            message: 'App layer cannot import from entities',
-                        },
-                        // pages не может импортировать из widgets, features, entities (кроме shared)
-                        {
-                            target: './src/pages',
-                            from: './src/widgets',
-                            message: 'Pages cannot import from widgets',
-                        },
-                        {
-                            target: './src/pages',
-                            from: './src/features',
-                            message: 'Pages cannot import from features',
-                        },
-                        {
-                            target: './src/pages',
-                            from: './src/entities',
-                            message: 'Pages cannot import from entities',
-                        },
-                        // widgets не может импортировать из features, entities
-                        {
-                            target: './src/widgets',
-                            from: './src/features',
-                            message: 'Widgets cannot import from features',
-                        },
-                        {
-                            target: './src/widgets',
-                            from: './src/entities',
-                            message: 'Widgets cannot import from entities',
-                        },
-                        // features не может импортировать из entities
+
+                        // 3. Features - импортирует ТОЛЬКО из entities и shared
                         {
                             target: './src/features',
-                            from: './src/entities',
-                            message: 'Features cannot import from entities',
+                            from: './src',
+                            except: ['./features', './entities', './shared'],
+                            message: 'Features can only import from entities and shared',
+                        },
+
+                        // 4. Widgets - импортирует ТОЛЬКО из features, entities и shared
+                        {
+                            target: './src/widgets',
+                            from: './src',
+                            except: ['./widgets', './features', './entities', './shared'],
+                            message: 'Widgets can only import from features, entities and shared',
+                        },
+
+                        // 5. Pages - импортирует из widgets, features, entities и shared
+                        {
+                            target: './src/pages',
+                            from: './src',
+                            except: [
+                                './pages',
+                                './widgets',
+                                './features',
+                                './entities',
+                                './shared',
+                            ],
+                            message: 'Pages can import from all except app',
                         },
                     ],
                 },
@@ -231,6 +222,7 @@ export default [
                         // Разрешенные внешние модули
                         'react-dom/client',
                         '@testing-library/jest-dom/vitest',
+                        '**/public/locales/**/*.json',
                     ],
                 },
             ],
@@ -256,6 +248,16 @@ export default [
             '@typescript-eslint/no-explicit-any': 'off',
             'no-console': 'off',
             'import/no-unresolved': 'off',
+
+            '@typescript-eslint/no-unsafe-member-access': 'warn',
+            '@typescript-eslint/no-unsafe-call': 'warn',
+            '@typescript-eslint/no-unsafe-argument': 'warn',
+
+            '@typescript-eslint/await-thenable': 'warn',
+
+            '@typescript-eslint/unbound-method': 'off',
+            '@typescript-eslint/no-empty-function': 'off',
+            'import/no-extraneous-dependencies': 'off',
         },
     },
     {
@@ -268,6 +270,7 @@ export default [
             '**/*.config.*',
             '**/.history/**',
             '**/public/**',
+            '**/scripts/**',
             '**/vite-env.d.ts',
         ],
     },

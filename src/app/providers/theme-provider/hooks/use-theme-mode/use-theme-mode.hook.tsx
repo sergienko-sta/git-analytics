@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
+import { theme } from 'antd';
 
 import * as Shared from '@shared';
 
@@ -6,9 +7,11 @@ import { darkTheme, lightTheme } from '@/app/theme';
 
 import type * as Types from './use-theme-mode.types';
 
+const { getDesignToken } = theme;
+
 export const useThemeMode: Types.TUseThemeMode = () => {
     const [mode, setMode] = useState<Shared.Model.TThemeMode>(() => {
-        const savedMode = localStorage.getItem('theme-mode');
+        const savedMode = localStorage.getItem(Shared.THEME_MODE);
 
         if (
             savedMode === Shared.Model.EThemeMode.LIGHT ||
@@ -25,7 +28,7 @@ export const useThemeMode: Types.TUseThemeMode = () => {
                 currentMode === Shared.Model.EThemeMode.LIGHT
                     ? Shared.Model.EThemeMode.DARK
                     : Shared.Model.EThemeMode.LIGHT;
-            localStorage.setItem('theme-mode', newMode);
+            localStorage.setItem(Shared.THEME_MODE, newMode);
             return newMode;
         });
     }, []);
@@ -33,9 +36,12 @@ export const useThemeMode: Types.TUseThemeMode = () => {
         () => (mode === Shared.Model.EThemeMode.LIGHT ? lightTheme : darkTheme),
         [mode],
     );
+    const designTokens = useMemo(() => {
+        return getDesignToken(currentTheme);
+    }, [currentTheme]);
 
     return useMemo(
-        () => ({ mode, currentTheme, toggleThemeMode }),
-        [mode, currentTheme, toggleThemeMode],
+        () => ({ mode, currentTheme, toggleThemeMode, designTokens }),
+        [mode, currentTheme, toggleThemeMode, designTokens],
     );
 };

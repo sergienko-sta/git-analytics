@@ -1,0 +1,94 @@
+{
+  "hero-banner": {
+    "title": "- pet-проект",
+    "description": "Погрузитесь в аналитику GitHub. \nИщите репозитории, отслеживайте тренды \nи изучайте код с помощью современного технологического стека.",
+    "search-now-btn": "Начать поиск"
+  },
+  "feature-points": {
+    "section": {
+      "title": "Что вы можете сделать с помощью {{appName}}?",
+      "description": "Инструменты для глубокого анализа GitHub"
+    },
+    "features": [
+      {
+        "id": 1,
+        "key": "search",
+        "title": "Мощный поиск",
+        "description": "Ищите репозитории по языкам, звездам, форкам и другим параметрам"
+      },
+      {
+        "id": 2,
+        "key": "api",
+        "title": "GitHub API интеграция",
+        "description": "Полный доступ к данным GitHub в реальном времени"
+      },
+      {
+        "id": 3,
+        "key": "trending",
+        "title": "Трендовые проекты",
+        "description": "Будьте в курсе самых популярных и быстрорастущих репозиториев"
+      },
+      {
+        "id": 4,
+        "key": "analytics",
+        "title": "Аналитика активности",
+        "description": "Отслеживайте коммиты, пул-реквесты и активность разработчиков"
+      }
+    ]
+  },
+  "architecture-points": {
+    "section": {
+      "title": "Архитектура приложения",
+      "description": "Код, готовый к production и масштабированию"
+    },
+    "architecture": {
+      "react": {
+        "title": "React 18+",
+        "description": "Современный React с хуками, Suspense, Concurrent features и оптимизациями производительности",
+        "highlights": ["Hooks API", "Concurrent режим", "Suspense", "useMemo/useCallback"]
+      },
+      "typescript": {
+        "title": "TypeScript v5",
+        "description": "Строгая типизация с полным покрытием кода, advanced типы, utility types и type guards",
+        "highlights": ["Строгая типизация", "Generic типы", "Utility types", "Безопасность типов"]
+      },
+      "router": {
+        "title": "React Router DOM v6",
+        "description": "Декларативная маршрутизация с защищенными роутами, ленивой загрузкой и вложенными маршрутами",
+        "highlights": ["Защищенные роуты", "Lazy loading", "Nested routes", "Data loading"]
+      },
+      "fsd": {
+        "title": "FSD (Feature-Sliced Design)",
+        "description": "Масштабируемая архитектура с четким разделением слоев: app, pages, widgets, features, entities, shared",
+        "highlights": ["Изоляция слоев", "Четкие границы", "Легкое масштабирование"]
+      },
+      "api-client": {
+        "title": "Типобезопасный API клиент",
+        "description": "Полная типизация GitHub API через @octokit/types, type guards, utility types",
+        "highlights": ["TypeScript first", "Автовывод типов", "Обработка ошибок"]
+      },
+      "performance": {
+        "title": "Оптимизация производительности",
+        "description": "Виртуализация списков, lazy loading, мемоизация, бесконечный скролл",
+        "highlights": ["React.memo", "useCallback/useMemo", "TanStack Query кеширование"]
+      },
+      "design-system": {
+        "title": "Дизайн-система",
+        "description": "Кастомная тема Ant Design v6, динамическая смена темы, CSS-in-JS",
+        "highlights": ["Динамические токены", "Styled-components", "Адаптивный дизайн"]
+      },
+      "i18n": {
+        "title": "Интернационализация",
+        "description": "Полная поддержка мультиязычности через i18next",
+        "highlights": ["i18next", "Мультиязычный интерфейс"]
+      }
+    }
+  },
+  "repository-layout": {
+    "tabs": {
+      "compare": "📊 Сравнение подходов",
+      "pagination": "📄 Пагинация",
+      "infinite": "♾️ Бесконечный скролл"
+    }
+  }
+}

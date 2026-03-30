@@ -1,0 +1,27 @@
+{
+  "search-query": {
+    "placeholder": "Enter query...",
+    "search-button": "Search"
+  },
+  "virtual-repos-list": {
+    "loading": {
+      "title": "Loading repositories...",
+      "description": "Please wait"
+    },
+    "empty": {
+      "title": "No repositories found",
+      "description": "Try changing your search parameters"
+    },
+    "stats": {
+      "found": "Found {{count}} repositories",
+      "found_one": "Found {{count}} repository",
+      "found_other": "Found {{count}} repositories"
+    },
+    "loadingMore": "Loading...",
+    "endOfList": "All repositories loaded",
+    "error": {
+      "title": "Loading error",
+      "retry": "Retry"
+    }
+  }
+}
