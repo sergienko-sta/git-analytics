@@ -5,7 +5,7 @@ import * as Constants from '../../constants';
 import type * as Model from '../../model';
 
 /* v8 ignore start */
-export const UseFeaturePoints = () => {
+export const useFeaturePoints = () => {
     const { t } = useTranslation('widgets');
     return useMemo(() => {
         const translation = t('feature-points', {
