@@ -1,5 +1,3 @@
-import type { ReactNode } from 'react';
-import { BulbFilled, BulbOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 
 import * as Widgets from '@widgets';
@@ -7,15 +5,12 @@ import * as Widgets from '@widgets';
 import * as Shared from '@shared';
 
 import * as Hooks from '../hooks';
+import type * as Model from '../model';
 
 import * as Styles from './header.styles';
 
-interface IHeaderProps {
-    rightContent?: ReactNode;
-}
-
-export const Header = ({ rightContent }: IHeaderProps) => {
-    const { toggleTheme, mode } = Shared.useTheme();
+export const Header = ({ rightContent }: Model.IHeaderProps) => {
+    const { themeButtonConfig, handleThemeToggle } = Hooks.useHeader();
     const { activeTab, handleLogoClick, handleTabChange } = Hooks.useNavigation();
 
     return (
@@ -29,9 +24,9 @@ export const Header = ({ rightContent }: IHeaderProps) => {
             <Styles.RightSection>
                 <Button
                     type='text'
-                    icon={mode === 'light' ? <BulbOutlined /> : <BulbFilled />}
-                    onClick={toggleTheme}
-                    title={`Switch to ${mode === 'light' ? 'dark' : 'light'} mode`}
+                    icon={themeButtonConfig.icon}
+                    onClick={handleThemeToggle}
+                    title={themeButtonConfig.title}
                 />
                 {rightContent}
             </Styles.RightSection>
