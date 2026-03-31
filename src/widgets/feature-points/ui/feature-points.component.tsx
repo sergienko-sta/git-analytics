@@ -11,7 +11,7 @@ const { Title, Paragraph } = Typography;
 
 export const FeaturePoints = () => {
     const { t } = useTranslation('widgets');
-    const features = Hooks.UseFeaturePoints();
+    const features = Hooks.useFeaturePoints();
     const appName = Shared.APP_LOGO_NAME;
 
     return (

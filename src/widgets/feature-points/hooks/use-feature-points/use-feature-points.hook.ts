@@ -4,15 +4,15 @@ import { useTranslation } from 'react-i18next';
 import * as Constants from '../../constants';
 import type * as Model from '../../model';
 
-/* v8 ignore start */
-export const UseFeaturePoints = () => {
+export const useFeaturePoints = () => {
     const { t } = useTranslation('widgets');
     return useMemo(() => {
         const translation = t('feature-points', {
             returnObjects: true,
         }) as Model.IFeaturePointsTranslation;
 
-        const translationMap = new Map(translation.features.map((item) => [item.id, item]));
+        const features = translation?.features || [];
+        const translationMap = new Map(features.map((item) => [item.id, item]));
 
         return Constants.FEATURES.map((feature) => {
             const translation = translationMap.get(feature.id);
@@ -24,4 +24,3 @@ export const UseFeaturePoints = () => {
         });
     }, [t]);
 };
-/* v8 ignore stop */

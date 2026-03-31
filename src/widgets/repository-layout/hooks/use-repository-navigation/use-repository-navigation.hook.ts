@@ -8,7 +8,6 @@ import * as Constants from '../../constants';
 
 import type * as Types from './use-repository-navigation.types';
 
-/* v8 ignore start */
 export const useRepositoryNavigation: Types.TUseRepositoryNavigation = () => {
     const { t } = useTranslation('widgets');
     const { to } = Shared.useAppNavigate();
@@ -16,7 +15,7 @@ export const useRepositoryNavigation: Types.TUseRepositoryNavigation = () => {
     const getActiveKey = useCallback(() => {
         const path = location.pathname;
         const activeTab = Constants.TAB_CONFIG.find((tab) => tab.check(path));
-        return activeTab?.key ?? 'compare';
+        return activeTab?.key ?? Constants.TAB_KEYS.COMPARE;
     }, [location.pathname]);
 
     const handleTabChange = useCallback(
@@ -40,4 +39,3 @@ export const useRepositoryNavigation: Types.TUseRepositoryNavigation = () => {
 
     return { tabItems, getActiveKey, handleTabChange };
 };
-/* v8 ignore stop */

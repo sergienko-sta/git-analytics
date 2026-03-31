@@ -9,7 +9,7 @@ const { Title, Paragraph } = Typography;
 
 export const ArchitecturePoints = () => {
     const { t } = useTranslation('widgets');
-    const architecturePoints = Hooks.UseArchitecturePoints();
+    const architecturePoints = Hooks.useArchitecturePoints();
 
     return (
         <Styles.Container>

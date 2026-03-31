@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import * as Constants from '../../constants';
 
-/* v8 ignore start */
-export const UseArchitecturePoints = () => {
+export const useArchitecturePoints = () => {
     const { t } = useTranslation('widgets');
 
     return useMemo(() => {
@@ -18,4 +17,3 @@ export const UseArchitecturePoints = () => {
         }));
     }, [t]);
 };
-/* v8 ignore stop */
