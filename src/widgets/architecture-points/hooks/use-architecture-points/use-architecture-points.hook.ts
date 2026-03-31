@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import * as Constants from '../../constants';
 
-/* v8 ignore start */
 export const useArchitecturePoints = () => {
     const { t } = useTranslation('widgets');
 
@@ -18,4 +17,3 @@ export const useArchitecturePoints = () => {
         }));
     }, [t]);
 };
-/* v8 ignore stop */
